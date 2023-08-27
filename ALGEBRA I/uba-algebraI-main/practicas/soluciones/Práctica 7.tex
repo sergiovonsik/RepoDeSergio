@@ -1,0 +1,1469 @@
+\input{macrosAlgebra}
+\usepackage{caratula}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+\decimalpoint
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\setcounter{tocdepth}{2} % profundidad de indice
+\setcounter{section}{6} % nro de section
+\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
+\graphicspath{ {images/} }
+
+% End latex config
+
+\begin{document}
+
+\titulo{Práctica 7}
+\fecha{2do cuatrimestre 2021}
+\materia{Álgebra I}
+\integrante{Yago Pajariño}{546/21}{ypajarino@dc.uba.ar}
+
+%Carátula
+\maketitle
+\newpage
+
+%Indice
+\tableofcontents
+\newpage
+
+% Aca empieza lo propio del documento
+\section{Práctica 7}
+
+\subsection{Ejercicio 1}
+
+Rdo. propiedades del producto y suma de polinomios: 
+\begin{itemize}
+    \item Grado de un producto de polinomios $ gr(ab) = gr(a) + gr(b) $
+    \item Coeficiente principal de un prodcuto de polinomios $ cp(ab) = ca(a)\cdot cd(b) $
+    \item $ \begin{cases}
+        gr(f+g) \leq max(gr(f); gr(g)) \\
+        gr(f+g) = max(gr(f); gr(g)) \iff gr(f) \neq gr(g) \vee (gr(f) = gr(g) \wedge cp(f) \neq cp(g))\\
+    \end{cases}  $
+\end{itemize}
+
+\subsubsection{Pregunta i}
+
+\begin{itemize}
+    \item $ gr(p) = 77 . gr(4x^6-2x^5+3x^2-2x+7) = 77.6 = 462 $
+    \item $ cp(p) = 4^{77} $ 
+\end{itemize}
+
+\subsubsection{Pregunta ii}
+
+Sea $ p = a^4 - b^7 $ con $ a = -3x^7 + 5x^3 + x^2 - x + 5 $ y $ b = 6x^4 + 2x^3 + x - 2 $
+\begin{align*}
+    gp(p) &= max(gr(a^4); gr(b^7)) \iff gr(a^4) \neq gr(b^7) \vee cp(a^4) \neq cp(b^7) \\
+    &= max(7.4; 4.7) \iff cp(a^4) \neq cp(b^7) \\
+    &= 28 \iff (-3)^4 \neq 6^7 \\
+    &= 28 \iff 81 \neq 279936
+\end{align*}
+\begin{itemize}
+    \item $ gr(p) = 28 $
+    \item $ cp(p) = 81-6^7 $ 
+\end{itemize}
+
+\subsubsection{Pregunta iii}
+
+Sea $ p = a - b + c $ con $ \begin{cases}
+    a = (-3x^5 + x^4 - x + 5)^4 \\
+    b = 82x^{20} \\
+    c = 19x^{19}
+\end{cases} $
+
+Luego $ p = 81x^{20} + (...) - 81x^{20}+19x^{19} \implies gr(p) = 19 $ pues se cancelan los termino con $ x^{20} $
+
+Entonces busco el coeficiente para $ x^{19} $
+\begin{align*}
+    cp(p) &= a_{19} + b_{19} + c_{19} \\
+    &= (-3.-3.-3.1) + 0 + 19 \\
+    &= -27 + 0 + 19 \\
+    &= -8 \\
+\end{align*}
+\begin{itemize}
+    \item $ gr(p) = 19 $
+    \item $ cp(p) = -8 $ 
+\end{itemize}
+
+\subsection{Ejercicio 2}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item En $ \mathbb{Q}[x] = 2 $
+        \item En $ \frac{\mathbb{Z}}{2\mathbb{Z}}[x] = 2 $
+    \end{enumerate}
+    \item Usando bin de Newton, $ c(20) = \binom{133}{20}(3i)^{113} $
+    \item Usando bin de Newton cuatro veces, \begin{itemize}
+        \item $ a_1 = \binom{4}{1}x^{1}(-1)^3 \cdot \binom{19}{19}x^{19}5^0 = -4x^{20} $
+        \item $ a_2 = \binom{4}{2}x^{2}(-1)^2 \cdot \binom{19}{18}x^{18}5^1 = 570x^{20} $
+        \item $ a_3 = \binom{4}{3}x^{3}(-1)^1 \cdot \binom{19}{17}x^{17}5^2 = -17100x^{20} $
+        \item $ a_4 = \binom{4}{4}x^{4}(-1)^0 \cdot \binom{19}{16}x^{16}5^3 = 121125x^{20} $
+    \end{itemize}
+    Luego $ c(20) = a_1 + a_2 + a_3 + a_4 - 5 = -4+570-17100+121125 -5 = 104586 $
+    \item $ c(20) = 21504 $
+\end{enumerate}
+
+\subsection{Ejercicio 3}
+
+\subsubsection{Pregunta i}
+
+Reescribo el polinomio que me dan,
+\begin{align*}
+    f^2 = xf + x + 1 &\iff f^2 - xf = x+1 \\
+    &\iff f(f-x) = x+1 \\
+    &\iff f\neq 0 \wedge f-x \neq 0 \\
+\end{align*}
+Tomo grado a ambos lados,
+\begin{align*}
+    gr(f) + gr(f-x) &= gr(x+1) \\
+    gr(f) + gr(f-x) &= 1 \\
+\end{align*}
+Luego el grado de f tiene que se menor a 2.
+
+\textbf{Caso gr(f) = 1}
+
+Si $ gr(f) = 1 \implies gr(f-x) = 0 $ para cumplir la igualdad de grados.
+
+Luego f es de la forma $ f = ax+b $ con $ a = 1 $
+
+Entonces,
+\begin{align*}
+    f(f-x) = x+1 &\iff (x+b)(x+b-x) = x+1 \\
+    &\iff xb + b^2 = x+1 \\
+    &\iff \text{Por igualdad de polinomios} \begin{cases}
+        b = 1 \\
+        b^2 = 1 \\
+    \end{cases} \iff b = 1
+\end{align*}
+Así, $ f_1 = x+1 $
+
+\textbf{Caso gr(f) = 0}
+
+Que el grado del polinomio sea igual a cero implica que $ f = c $ con c una constante.
+
+Entonces,
+\begin{align*}
+    f(f-x) = x+1 &\iff c(c-x) = x+1 \\
+    &\iff c^2 - cx = x+1 \\
+    &\iff \text{Por igualdad de polinomios} \begin{cases}
+        -c = 1 \\
+        c^2 = 1
+    \end{cases} \implies c = -1
+\end{align*}
+Así, $ f_2 = -1 $
+
+Rta.: $ f = x+1 $ y $ f=-1 $
+
+\subsubsection{Pregunta ii}
+
+Reescribo el polinomio que me dan,
+\begin{align*}
+    f^2 - xf = x^2 + 1 \iff f(f-x) = -x^2 + 1
+\end{align*}
+Tomo grado a ambos lados de la igualdad.
+\begin{align*}
+    gr(f) + gr(f-x) &= gr(-x^2 + 1) \\
+    0 + 2 &= 2 \text{ No puede ser} \\
+    1 + 1 &= 2 \\
+    2 + 0 &= 2 \text{ No puede ser} \\
+\end{align*}
+Así, el único caso posible es que $ gr(f) = 1 $ y que $ gr(f-x) = 1 $
+
+Sea $ f = ax+b $,
+\begin{align*}
+    f(f-x) = -x^2 + 1 &\iff (ax+b)(ax+b-x) = -x^2+1 \\
+    &\iff (ax+b)((a-1)x+b) = -x^2+1 \\
+    &\iff a(a-1)x^2 + abx + b(a-1)x + b^2 = -x^2+1 \\
+    &\iff a(a-1)x^2 + (ab+b(a-1))x + b^2 = -x^2+1 \\
+    &\iff \text{Por igualdad de polinomios }\begin{cases}
+        a(a-1) = -1 \\
+        ab+b(a-1) = 0 \\
+        b^2 = -1 
+    \end{cases}
+\end{align*}
+Busco soluciones para el sistema de tres ecuaciones que resultó.
+
+De la tercera, se que $ b = \pm 1 $
+
+$ b = 1 \implies a + a + 1 = 0 \iff 2a = 1 \iff a = \frac{1}{2} $
+
+Pero con $ a = \frac{1}{2} \wedge b= 1 \implies \frac{1}{2} (\frac{1}{2}-1) = \frac{1}{4} - \frac{1}{2} = -\frac{1}{4} \neq -1 $
+
+Luego $ b = 1 $ NO sirve.
+
+$ b = -1 \implies -a-a+1 = 0 \implies -2a = -1 \implies a = \frac{1}{2} $
+
+Se llega al mismo valor de a que con b=1 y ya se probó que no sirve.
+
+Por lo tanto, $ \not \exists f \in \mathbb{C}[x] $ que cumpla lo pedido.
+
+\subsubsection{Pregunta iii}
+
+Reescribo el polinomio que me dan,
+\begin{align*}
+    (x+1)f^2 = x^6 + xf &\iff (x+1)f^2 - xf = x^6 \\
+    &\iff f((x+1)f - x) = x^6 \\
+\end{align*}
+Aplico grado a ambos lados de la igualdad.
+\begin{align*}
+    gr(f) + gr((x+1)f - x) &= gr(x^6) \\
+    0 + 6 &= 6 \\
+    1 + 5 &= 6 \\
+    2 + 4 &= 6 \\
+    3 + 3 &= 6 \\
+    4 + 2 &= 6 \\
+    5 + 1 &= 6 \\
+    6 + 0 &= 6 \\
+\end{align*}
+Luego de dar todos los posibles valores a $ gr(f) $, se puede ver que no existe $ gr((x+1)f - x) $ que cumpla lo pedido.
+
+Por lo tanto, $ \not \exists f \in \mathbb{C}[x] $ que cumpla lo pedido.
+
+\subsubsection{Pregunta iv}
+
+Dado que por enunciado se que $ f \neq 0 $, puedo reescribir la igualdad como,
+\begin{align*}
+    f^3 = gr(f) \cdot x^2f &\iff f^2 = gr(f)\cdot x^2 \\
+\end{align*}
+Aplico grado a ambos lados de la igualdad.
+\begin{align*}
+    gr(f^2) &= gr(gr(f)\cdot x^2) \\
+    gr(f^2) &= 2 \\
+    gr(f.f) &= 2 \\
+    2gr(f) &= 2 \\
+    gr(f) &= 1 \\
+\end{align*}
+Luego, con $ f = ax+b $,
+\begin{align*}
+    f^2 = gr(f)\cdot x^2 &\iff (ax+b)^2 = x^2 \\
+    &\iff a^2x^2 + 2abx + b^2 = x^2 \\
+    &\iff \text{Por igualdad de polinomios} \begin{cases}
+        a^2 = 1 \\
+        2ab = 0 \\
+        b = 0
+    \end{cases}
+\end{align*}
+Entonces, $ a = \pm 1 $ y $ b = 0 $ son las soluciones del sistema.
+
+Rta.: $ f_1 = x $ y  $ f_2 = -x $ son los únicos polinomios que cumplen lo pedido.
+
+\subsection{Ejercicio 4}
+
+En estos ejercicios hay que hacer la división con la caja. Yo voy a dejar los resultados de cada paso de la división.
+
+\subsubsection{Pregunta i}
+
+\begin{enumerate}
+    \item C = $ 5x^2 $; R = $ 2x^3-10x^2-x+4 $ 
+    \item C = $ 2x $; R = $ -10x^2-5x+4 $ 
+    \item C = $ -10 $; R = $ -5x-16 $ 
+\end{enumerate}
+
+Rta: \begin{itemize}
+    \item C = $ 5x^2 + 2x - 10 $
+    \item R = $ -5x-16 $
+\end{itemize}
+
+\subsubsection{Pregunta ii}
+
+\begin{enumerate}
+    \item C = $ 2x^2 $; R = $ x^3-2x^2-4 $ 
+    \item C = $ \frac{1}{2}x $; R = $ -2x^2 - \frac{1}{2}x - 4 $ 
+    \item C = $ -1 $; R = $ -\frac{1}{2}x - 3 $ 
+\end{enumerate}
+
+Rta: \begin{itemize}
+    \item C = $ 2x^2 + \frac{1}{2}x - 1 $
+    \item R = $ -\frac{1}{2}x - 3 $
+\end{itemize}
+
+\subsubsection{Pregunta iii}
+
+\begin{enumerate}
+    \item C = $ x^{n-1} $; R = $ x^{n-1} - 1 $ 
+    \item C = $ x^{n-2} $; R = $ x^{n-2} - 1 $ 
+    \item C = $ ... $; R = $ ... $ 
+    \item C = $ 1 $; R = $ 0 $ 
+\end{enumerate}
+
+Rta: \begin{itemize}
+    \item C = $ \sum_{i = 1}^{n}x^{n-i}(x-1) $
+    \item R = $ 0 $
+\end{itemize}
+
+\subsection{Ejercicio 5}
+
+\subsubsection{Pregunta i}
+
+Haciendo $ x^3 + 2x^2 + 2x + 1 $ dividido $ x^2 + ax + 1 $ llego a:
+\begin{align*}
+    x^3 + 2x^2 + 2x + 1 = (x^2 + ax + 1)(x + 2 - a) + \left( 1 - 2a + a^2 \right)x -1 + a
+\end{align*}
+Luego busco que el resto $ \left( 1 - 2a + a^2 \right)x -1 + a $ sea igual a cero, por igualdad de polinomios,
+\begin{align*}
+    \left( 1 - 2a + a^2 \right)x -1 + a = 0 \iff \begin{cases}
+    1 - 2a + a^2 = 0 \\
+    -1+a = 0
+    \end{cases}
+\end{align*}
+De la segunda ecuación se que $ -1 + a = 0 \iff a = 1 $.
+
+Reemplazando en la primera y verifico que $ a = 1 $ cumple lo pedido, $ 1-2a+a^2 = 1-2+1 = 0 $
+
+Rta.: $ a = 1 $
+
+\subsubsection{Pregunta ii}
+
+Haciendo $ x^4 - ax^3 + 2x^2 + x + 1 $ dividido $ x^2 + x + 1 $ llego a:
+\begin{align*}
+    x^4 - ax^3 + 2x^2 + x + 1 = (x^2 + x + 1)(x^2 + (-a-1)x + 2 + a) + 1-2-a
+\end{align*}
+Luego busco que el resto $ 1-2-a $ sea igual a cero, por igualdad de polinomios,
+\begin{align*}
+    1-2-a = 0 \iff \begin{cases}
+        1-2-a = 0 \\
+    \end{cases}
+\end{align*}
+Por lo tanto $ a = -1 $ es el único que lo cumple. 
+
+\subsubsection{Pregunta iii}
+
+(Esta división es larga y pesada)
+Haciendo $ x^5 - 3x^3 - x^2 - 2x + 1 $ dividido $ x^2 + ax + 1 $ llego a:
+\begin{align*}
+    x^5 - 3x^3 - x^2 - 2x + 1 = (x^2 + ax + 1)(x^3 - ax^2 + (-4a^2)x + (-1+5a-a^3)) + \left[ (2-a^2 + a - 5a^2 + a^4)x + (2-5a + a^3) \right]
+\end{align*}
+Luego busco que el resto sea igual a $ -8x + 4 $,
+\begin{align*}
+    \left[ (2-a^2 + a - 5a^2 + a^4)x + (2-5a + a^3) \right] = -8x + 4 \iff \begin{cases}
+        a^4 - 6a^2 + a + 2 = -8 \\
+        a^3 - 5a + 2 = 4
+    \end{cases}
+\end{align*}
+De la segunda ecuación,
+\begin{align*}
+    a^3 - 5a + 2 = 4 &\iff a^3 - 5a - 2 = 0 \\
+    &\iff a(a^2 - 5) - 2 = 0 \\
+\end{align*}
+A simple vista veo que $ a = -2 $ es solución, luego usando Ruffini,
+\begin{align*}
+    a^3 - 5a - 2 = (a^2 - 2a - 1)(a+2)
+\end{align*}
+Por lo tanto busco soluciones para $ a^2 - 2a - 1 = 0 \iff a = \frac{2 \pm \sqrt[]{8}}{2} $
+
+Queda ver cuales de estos valores de a hallados cumple la primer ecuación.
+
+\begin{itemize}
+    \item $ a = -2 \implies a^4 - 6a^2 + a + 2 = 16 - 24 - 2 + 2 = -8 $
+    \item $ a = \frac{2 + \sqrt[]{8}}{2} \implies a^4 - 6a^2 + a + 2 \neq -8 $ (Wolfram) 
+    \item $ a = \frac{2 - \sqrt[]{8}}{2} \implies a^4 - 6a^2 + a + 2 \neq -8 $ (Wolfram) 
+\end{itemize}
+
+\subsection{Ejercicio 6}
+TODO
+
+\subsection{Ejercicio 7}
+
+\subsubsection{Pregunta i}
+
+Por definición de congruencias se que $ x^{31} - 2 \equiv 0(x^{31} - 2) \implies x^{31} \equiv 2(x^{31} - 2) $
+
+Luego,
+\begin{align*}
+    x^{353} - x - 1 &\equiv (x^{31})^11 \cdot x^{12} - x - 1 (x^{31} - 2) \\
+    &\equiv 2^11 \cdot x^{12} - x - 1 (x^{31} - 2) \\
+    &\equiv 2048x^{12} - x - 1 (x^{31} - 2)\\
+\end{align*}
+Rta.: $ r_{x^{31} - 2}(x^{353} - x - 1) = 2048x^{12} - x - 1 $
+
+\subsubsection{Pregunta ii}
+
+Se que $ x^{6} + 1 | x^6 + 1 \iff x^6 + 1 \equiv 0 (x^6 + 1) \iff x^6 \equiv -1 (x^6 + 1) $
+
+Luego,
+\begin{align*}
+    x^{1000} + x^{40} + x^{20} + 1 &\equiv (x^6)^{166} \cdot x^4 + (x^6)^6 \cdot x^4 + (x^6)^3 \cdot x^2 + 1 \\
+    &\equiv (-1)^{166} \cdot x^4 + (-1)^6 \cdot x^4 + (-1)^3 \cdot x^2 + 1 \\
+    &\equiv x^4 + x^4 - x^2 + 1 \\
+    &\equiv 2x^4 - x^2 + 1 \\
+\end{align*}
+Rta.: $ r_{x^6 + 1}(x^{1000} + x^{40} + x^{20} + 1) = 2x^4 - x^2 + 1 $
+
+\subsubsection{Pregunta ii}
+
+Se que $ x^{100} - x + 1 \equiv 0 (x^{100} - x + 1) \iff x^{100} \equiv x-1(x^{100} -x + 1) $
+
+Luego,
+\begin{align*}
+    x^{200} - 3x^{101} + 2 &\equiv (x^{100})^2 - 3(x^{100})x + 2 \\
+    &\equiv (x-1)^2 - 3(x-1)x + 2 \\
+    &\equiv x^2 - 2x + 1 - 3x^2 + 3x + 2 \\
+    &\equiv -2x^2 + x + 3 (x^{100} -x + 1) \\
+\end{align*}
+Rta.: $ r_{x^{100} -x + 1}(x^{200} - 3x^{101} + 2) = -2x^2 + x + 3 $
+
+\subsection{Ejercicio 8}
+TODO
+
+\subsection{Ejercicio 9}
+
+Se resuelve con el algoritmo de Euclides en polinomios. Calculadora de MCD de polinomios \url{https://planetcalc.com/7760/}
+
+\begin{enumerate}
+    \item \begin{itemize}
+        \item $ MCD = -x+1 $
+    \end{itemize}
+    \item \begin{itemize}
+        \item $ MCD = x^2 + 1 $
+        \item $ x^2 + 1 = f + (-x^3)g $
+    \end{itemize}
+    \item \begin{itemize}
+        \item $ MCD = 3 $
+        \item $ 3 = (-x+2)f + (1+2x^2 - 4x)g $
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Ejercicio 10}
+
+Se que el resto tiene que tener grado menor al divisor, luego $ gr(r) \leq 2 $
+
+Por algoritmo de división de polinomios existen $ q $ cociente y $ r $ resto tales que:
+\begin{align*}
+    f = q(x^3-2x^2-x+2) + r \\
+\end{align*}
+El enunciado me da las evaluaciones de $f$ en $ 1; 2; -1 $, luego
+\begin{align*}
+    f(1) &= q(1)(1-2-1+2) + r(1) \implies f(1) = r(1) = -2 \\ 
+    f(2) &= q(1)(8-8-2+2) + r(2) \implies f(2) = r(2) = 1 \\ 
+    f(-1) &= q(1)(-1-2+1+2) + r(-1) \implies f(-1) = r(-1) = 0 \\ 
+\end{align*}
+Por lo tanto se que $ r $ es de la forma $ ax^2 + bx + c $, con $ a;b;c \in \mathbb{Q} $, luego
+
+$ \begin{cases}
+    r(1) = a + b + c = -2 \\
+    r(2) = 4a + 2b + c = 1 \\
+    r(-1) = a - b + c = 0 \\
+\end{cases} $
+
+Restando la tercera a la primera, $ 2b = -2 \iff b = -1 $
+
+Rearmando el sistema con lo hallado,
+
+$ \begin{cases}
+    a + c = -1 \\
+    4a + c = 3 \\
+    a + c = -1
+\end{cases} $
+
+La tercera es igual a la primera así que la puedo eliminar y restando la primera a la segunda:
+
+$ 3a = 4 \iff a = \frac{4}{3} $
+
+Luego $ a + c = -1 \iff \frac{4}{3} + c = -1 \iff c = -\frac{7}{3} $
+
+Así, $ r_{x^3-2x^2-x+2}(f) = \frac{4}{3}x^2 - x - \frac{7}{3} $
+
+\subsection{Ejercicio 11}
+
+Sea $ f = x^{2n} + 3x^{n+1} + 3x^n - 5x^2 + 2x + 1 $ \\
+Sea $ g = x^3 - x $
+
+Se que $ f = q.g + r $ con $ gr(r) \leq 2 \implies r = ax^2 + bx + c $
+
+Busco raíces de g,
+\begin{align*}
+    x^3 - x = 0 &\iff x(x^2 - 1) = 0  \\
+    &\iff x \in \{ -1,0,1 \}
+\end{align*}
+Evalúo f para las raíces halladas,
+\begin{align*}
+    f(0) &= q(0)g(0) + r(0) \implies r(0) = 1 \\
+    f(1) &= q(1)g(1) + r(1) \implies r(1) = 1+3+3-5+2+1 = 5 \\ 
+    f(-1) &= q(-1)g(-1) + r(-1) \implies r(-1) = 1+3(-1)^{n+1} + 3(-1)^n -5 - 2 - 1 = -5 \\ 
+\end{align*}
+Por lo tanto, sabiendo que $ r(x) = ax^2 + bx + c $
+$ \begin{cases}
+    r(0) = 1 = c \\
+    r(1) = 5 = a+b+c \\
+    r(-1) = -5 = 25a - 5b + c
+\end{cases} $
+
+Sabiendo $ c = 1 \implies \begin{cases}
+    a+b = 4 \implies a = 4-b \\
+    25a-5b = -6
+\end{cases} $
+
+Sabiendo $ a = 4-b \implies $
+\begin{align*}
+    25(4-b) - 5b &= -6 \\
+    100 - 25b - 5b &= -6 \\
+    -30b &= -106 \\
+    b &= \frac{53}{15}
+\end{align*}
+
+Luego $ a = 4-b \implies a = 4- \frac{53}{15} = \frac{7}{15}$
+
+Así, $ r_{f}(g) = \frac{7}{15}x^2 + \frac{53}{15}x +1 $
+
+\subsection{Ejercicio 12}
+
+Sea $ w = x^3 $ \\
+Sea $ g = w^2 + w - 2 $
+
+Busco raíces de g
+\begin{align*}
+    g(w) = 0 \iff w = \frac{-1 \pm \sqrt[]{1-4.1.-2}}{2} \iff \begin{cases}
+        w_1 = 1 \\
+        w_2 = -2
+    \end{cases}
+\end{align*}
+Por lo tanto, recordando que $ w = x^3 $,
+\begin{align*}
+    w_1 = x^3 = 1 \iff \begin{cases}
+        x_1 = 1 \\
+        x_2 = -\frac{1}{2} + \frac{\sqrt[]{3}}{2}i \\
+        x_3 = -\frac{1}{2} - \frac{\sqrt[]{3}}{2}i \\
+    \end{cases}
+\end{align*}
+Y,
+\begin{align*}
+    w_2 = x^3 = -2 \iff \begin{cases}
+        x_4 = -\sqrt[3]{2} \\
+        x_5 = \frac{\sqrt[3]{2}}{2} + \sqrt[3]{2} \cdot \frac{\sqrt[]{3}}{2}i \\
+        x_6 = \frac{\sqrt[3]{2}}{2} - \sqrt[3]{2} \cdot \frac{\sqrt[]{3}}{2}i \\
+    \end{cases}
+\end{align*}
+
+\subsection{Ejercicio 13}
+
+Por definición de raíz, $ w + w^2 + w^4 $ es raíz de f $ \iff f(w + w^2 + w^4) = 0 $
+
+Luego se que,
+\begin{itemize}
+    \item $ w = e^{\frac{2}{7} \pi i} $
+    \item $ w^2 = e^{\frac{4}{7} \pi i} $
+    \item $ w^4 = e^{\frac{8}{7} \pi i} $
+\end{itemize}
+Luego defino,
+\begin{itemize}
+    \item $ r = Re(w + w^2 + w^4) = \cos{\frac{2}{7} \pi} + \cos{\frac{4}{7} \pi} + \cos{\frac{8}{7} \pi} = -\frac{1}{2} $
+    \item $ m = Im(w + w^2 + w^4) = \sin{\frac{2}{7} \pi} + \sin{\frac{4}{7} \pi} + \sin{\frac{8}{7} \pi} = \frac{\sqrt[]{7}}{2} $
+\end{itemize}
+Luego evalúo f en $ k = r + m.i $
+\begin{align*}
+    f(k) &= (r + m.i)^2 + (r + m.i) + 2 \\
+    &= (-\frac{1}{2} + \frac{\sqrt[]{7}}{2}.i)^2 + (-\frac{1}{2} + \frac{\sqrt[]{7}}{2}.i) + 2 \\
+    &= \frac{1}{4} - \frac{\sqrt[]{7}}{2}.i - \left(\frac{\sqrt[]{7}}{2}\right)^2 - \frac{1}{2} + \frac{\sqrt[]{7}}{2}.i + 2 \\
+    &= 0 \\
+\end{align*}
+
+\subsection{Ejercicio 14}
+
+\subsubsection{Pregunta i}
+
+Me piden probar que $ (w+w^{-1}) $ y $ (w^2 + w^{-2}) $ son raíces de f.
+\begin{align*}
+    w+w^{-1} &= e^{\frac{2}{5} \pi i} + e^{-\frac{2}{5} \pi i} \\
+    &= \cos{\frac{2}{5} \pi} + \cos{-\frac{2}{5} \pi} + i\left( \sin{\frac{2}{5} \pi} + \sin{-\frac{2}{5} \pi} \right) \\
+    &= \cos{(\frac{2}{5} \pi)} + \cos{(-\frac{2}{5} \pi)} \\
+\end{align*}
+Luego sea $ A = \cos{(\frac{2}{5} \pi)} + \cos{(-\frac{2}{5} \pi)} \implies f(A) = A^2 + A - 1 = 0 $ 
+
+Así, $ (w+w^{-1}) $ es raíz de f.
+\begin{align*}
+    w^2 + w^{-2} &= e^{\frac{4}{5} \pi i} + e^{-\frac{4}{5} \pi i} \\
+    &= \cos{\frac{4}{5} \pi} + \cos{-\frac{4}{5} \pi} + i\left( \sin{\frac{4}{5} \pi} + \sin{-\frac{4}{5} \pi} \right) \\
+    &= \cos{(\frac{4}{5} \pi)} + \cos{(-\frac{4}{5} \pi)} \\
+\end{align*}
+Luego sea $ B = \cos{(\frac{4}{5} \pi)} + \cos{(-\frac{4}{5} \pi)} \implies f(B) = B^2 + B - 1 = 0 $ 
+
+Así, $ (w^2 + w^{-2}) $ es raíz de f.
+
+\subsubsection{Pregunta ii}
+TODO
+
+\subsection{Ejercicio 15}
+\subsubsection{Pregunta i}
+
+$a$ es raíz de $f \iff (x-a)|f \iff f = n(x-a) $ \\
+$a$ es raíz de $g \iff (x-a)|g \iff f = m(x-a) $ 
+
+Por propiedades del MCD se que existen s, t tales que,
+\begin{align*}
+    (f:g) = sf + tg &\iff (f:g) = sn(x-a) + tm(x-a) \\
+    &\iff (f:g) = (x-a) \cdot (sn + tm) \\
+    &\iff (x-a)|(f:g) \\
+\end{align*}
+Luego $ (x-a)|(f:g) \iff (x-a) $ es raíz de $ (f:g) $ como se quería probar.
+
+\subsubsection{Pregunta ii}
+
+Primero busco el MCD entre $ x^4 + 3x - 2 $ y $ x^4 + 3x^3 - 3x + 1 $
+
+(Acá van las cuentas del algo de Euclides)
+
+Luego $ MCD = x^2 + x - 1 $
+
+Busco raíces del MCD,
+\begin{align*}
+    x^2 + x - 1 = 0 &\iff x = \frac{-1 \pm \sqrt[]{1-4.1.-1}}{2} \\
+    &\iff x = \frac{-1 \pm \sqrt[]{5}}{2} \\
+\end{align*}
+Luego que f teng auna raíz común con g $ \implies (f:g)|f $
+\begin{align*}
+    x^2 + x - 1 | x^4 + 3x^3 - 3x + 1 \iff x^4 + 3x^3 - 3x + 1 = q(x^2 + x - 1)
+\end{align*}
+(Acá va la división)
+
+Obtengo que, $ x^4 + 3x^3 - 3x + 1 = (x^2 - x + 2)(x^2 + x - 1) $
+
+Ahora busco raíces de $ x^2 - x + 2 $
+\begin{align*}
+    x^2 - x + 2 = 0 &\iff x = \frac{1 \pm \sqrt[]{-7}}{2} \\
+    &\iff x = \frac{1 \pm \sqrt[]{7}i}{2} \\
+\end{align*}
+Luego las raíces de f son:
+\begin{itemize}
+    \item $ x_1 = \frac{-1 + \sqrt[]{5}}{2} $
+    \item $ x_2 = \frac{-1 - \sqrt[]{5}}{2} $
+    \item $ x_3 = \frac{1 + \sqrt[]{7}i}{2} $
+    \item $ x_4 = \frac{1 - \sqrt[]{7}i}{2} $
+\end{itemize}
+
+\subsection{Ejercicio 16}
+
+\subsubsection{Pregunta i}
+La idea es evaluar en la función y sus derivadas hasta encontrar la derivada en la que no vale cero.
+\begin{align*}
+    f(1) &= 1-2+1 = 0 \implies mult(1,f) \geq 1 \\
+    f'(x) &= 5x^4 - 6x^2 + 1 \\
+    f'(1) &= 5-6+1 = 0 \implies mult(1,f) \geq 2 \\
+    f''(x) &= 20x^3 - 12x \\
+    f''(1) &= 20-12 \neq 0 \implies mult(1,f) = 2
+\end{align*}
+
+\subsubsection{Pregunta ii}
+\begin{align*}
+    f(x) &= x^6 - 3x^4 + 4 \\
+    f(i) &= (i^2)^3 - 3(i^2)^2 + 4 = -1-3+4 = 0 \implies mult(i,f) \geq 1 \\
+    f'(x) &= 6x^5 - 12x^3 \\
+    f'(i) &= 6(i^2)^2 . i - 12(i^2).i = 6i+12i \neq 0 \implies mult(i,f) = 1 \\
+\end{align*}
+
+\subsubsection{Pregunta iii}
+\begin{align*}
+    f(x) &= (x-2)^2 \cdot (x^2-4) + (x-2)^3 \cdot (x-1) \\
+    f(2) &= 0 + 0 = 0 \implies mult(2,f) \geq 1 \\
+    f'(x) &= 2(x-2) \cdot (x^2-4) + (x-2)^2 \cdot 2x + 3(x-2)^2 \cdot (x-1) + (x-2)^3 \\
+    f'(x) &= 8x^3 -33x^2 +36x -4 \\
+    f'(2) &= 0 + 0 + 0 + 0 = 0 \implies mult(2,f) \geq 2 \\
+    f''(x) &= 24x^2 -66x +36 \\
+    f''(2) &= 96 -264 +36 = 0 \implies mult(2,f) \geq 3 \\
+    f'''(x) &= 48x - 66 \\
+    f'''(2) &= 96 - 66 = 30 \neq 0 \implies mult(2,f) = 3 \\
+\end{align*}
+
+\subsection{Ejercicio 17}
+Por propiedades de la multiplicidad de raíces, se que $ f $ tiene raíces simples si $ \forall a \in \mathbb{C}: f(a) = 0 \implies f'(a) \neq 0 $
+
+Luego,
+\begin{align*}
+    f'(x) &= (n+1)n x^n -n(n+1)x^{n-1} \\
+    &= (n+1)n x^{n-1} (x-1) = 0 \iff x \in \{ 0,1 \} \\
+\end{align*}
+Por lo tanto las unicas posibles raíces multiples son $ x_0 = 0; x_1 = 1 $
+
+Queda ver los valores de a tales que $f(x_1)$, $f(x_2)$ son iguales a cero,
+\begin{align*}
+    f(0) = a = 0 \iff a = 0 \\
+    f(1) = n-(n+1) + a = 0 \iff a = n+1-n = 1
+\end{align*}
+Rta.: $f$ tiene raíces simples $ \iff a \in \{ 0, 1 \} $
+
+\subsection{Ejercicio 18}
+Por propiedades de la multiplicidad de raíces, se que $ f $ tiene raíces multiples si $ \exists a \in \mathbb{C}: f(a) = 0 \wedge f'(a) = 0 $
+
+Luego,
+\begin{align*}
+    f'(x) &= (2n+1)x^{2n} - (2n+1) \\
+    &= (2n+1)(x^{2n} - 1) = 0 \iff x = \pm 1 \\
+\end{align*}
+Entonces busco los a tales que $f(1) = 0$ y $f(-1) = 0$
+
+\begin{align*}
+    f(1) &= 1-(2n+1) +a = 0 \iff a = 2n \iff a \equiv 0(2)\\
+    f(-1) &= (-1)^{2n+1}-(2n+1)(-1) +a = -1+2n+1+a = 0 \iff a = -2n \iff a \equiv 0(2) \\
+\end{align*}
+Rta.: Tiene raíces multiples $ \forall a \in \mathbb{C}: a \equiv 0(2) $
+
+\subsection{Ejercicio 19}
+Al igual que en los anteriores, primero busco la derivada y busco los valores para los que es igual a cero.
+\begin{align*}
+    f'(x) = 20x^{19} + 80x^9 &= 0 \\
+    20x^{9}(x^{10} + 4) &= 0 \iff (x = 0) \vee (x^{10} = -4) \\
+\end{align*}
+Luego $ x = 0 $ es raíz multiple de f sii $a = 0$ y tiene multiplicidad 10.
+
+Ahora veo el caso $ x^{10} = -4 $
+\begin{align*}
+    f(x) &= (x^{10})^2 +8x^{10} + 2a \\
+    f(x) &= (-4)^2 +8(-4) + 2a \iff 0 = 16 - 32 + 2a \iff a = 8 \\
+\end{align*}
+Luego si $ a = 8 $, los x tales que $ x^{10} = -4 $ serán raíces multiples de f, dado que $gr(f) = 20 \implies $ f tiene 20 raíecs en $\mathbb{C}$. Dado que existen 10 x tales que $x^{10} = -4 \implies $ f tiene 10 raíces de multiplicidad 2.  
+
+\subsection{Ejercicio 20}
+Por propiedades de las raíces multiples, se que $f$ tiene raíz múltiple $ \iff \exists \alpha \in \mathbb{C}: f(\alpha) = 0 \wedge f'(\alpha) = 0 $
+
+Luego busco los x tales que $f'(x) = 0$,
+\begin{align*}
+    &f'(x) = 68x^{67} - 68x^{3} = 68x^3(x^{64}-1) \\
+    \implies &f'(x) = 0 \iff (x=0) \vee (x^{64}=1)
+\end{align*}
+Si $x=0$, $ f(0) = 16 \neq 0 $. Luego no es raíz de f.
+
+Si $x^{64} = 1$,
+\begin{align*}
+    f(x) = x^{64} \cdot x^4 - 17x^4 - 16 &= 0 \\
+    x^4 - 17x^4 - 16 &= 0 \\
+    x^4(1-17) &= 16 \\
+    x^4 &= -1 \\
+\end{align*}
+Luego los $\alpha$ que cumplen lo pedido son $ \{\alpha \in \mathbb{C}: \alpha \in G_{64} \wedge \alpha^4=-1 \} $
+
+Pero se que,
+\begin{align*}
+    a^{64} = (a^{4})^{16} = (-1)^{16} = 1
+\end{align*}
+Luego si $ a^{4} = -1 \implies a \in G_{64} $
+
+Y los $ \alpha $ tales que $ \alpha^4 = -1 $ son:
+\begin{itemize}
+    \item $ \alpha_0 = e^{\frac{1}{4}\pi i} $
+    \item $ \alpha_1 = e^{\frac{3}{4}\pi i} $
+    \item $ \alpha_2 = e^{\frac{5}{4}\pi i} $
+    \item $ \alpha_3 = e^{\frac{7}{4}\pi i} $
+\end{itemize}
+Y cada uno de ellos tiene $ mult(\alpha_i, f) = 2$
+
+\subsection{Ejercicio 21}
+
+Para este ejercicio se puede usar la regla de la división de Ruffini, 
+\href{https://calculadorasonline.com/calculadora-de-division-sintetica-regla-de-ruffini-online/}{Calculadora de Ruffini}
+\subsubsection{Pregunta i}
+Probado usando Ruffini
+
+\subsubsection{Pregunta ii}
+Usando ruffini queda resto igual a $ a+2 $, luego f es divisible por $(x-1)^3 \iff a+2 = 0 \iff a = -2$
+
+\subsection{Ejercicio 22}
+
+Busco $a$ tales que
+\begin{itemize}
+    \item $ f(1) = 0 $
+    \item $ f'(1) = 0 $
+    \item $ f''(1) \neq 0 $
+\end{itemize}
+Luego,
+\begin{align*}
+    f(1) &= 1-a-3+2+3a-2a = 0; \forall a \in \mathbb{C} \implies mult(1, f) \geq 1 \\
+    f'(x) &= 4x^3 - 3ax^2  -6x + 2 + 3a \\
+    f'(1) &= 4-3a+6+2+3a = 0; \forall a \in \mathbb{C} \implies mult(1, f) \geq 2 \\
+    f''(x) &= 12x^2 - 6ax + 6 \\
+    f''(1) &= 12-6a-6 = 12-6a
+\end{align*}
+Luego $f(1) \neq 0 \iff 12-6a \neq 0 \iff 12 = 6a \iff a = 2 $
+
+Rta.: 1 es raíz doble de f para $ a = 2 $
+
+\subsection{Ejercicio 23}
+
+f tiene raíces simples $ \iff \forall a \in \mathbb{C}: f(a) = 0 \implies f'(a) \neq 0 $
+
+Si defino $ f_n = \sum_{k = 0}^{n}\frac{x^k}{k!} $
+
+Luego $ f' = \sum_{k = 1}^{n}\frac{kx^{k-1}}{k!} = \sum_{k = 0}^{n-1}\frac{x^{k-1}}{(k-1)!} = f_{n-1} $
+
+Ahora supongo $ f_n(a) = 0 $ y quiero ver que $ f_{n-1}(a) \neq 0 $
+
+Pero, $ f_{n-1}(a) = f_n(a) - \frac{\alpha^n}{n!} = 0 - \frac{\alpha^n}{n!} \neq 0; \forall \alpha \neq 0 $
+
+Y si $ \alpha = 0 \implies f_n(0) = 1 \neq 0 \implies x = 0 $ no es raíz de $ f_n $ como se quería probar.
+
+\subsection{Ejercicio 24}
+
+Demostración usando inducción
+
+Defino $ p(n): f_n(i) = 0 \wedge f'_n(i) = 0 \wedge f''_n(i) \neq 0 $
+
+\textbf{Caso base n = 1}
+\begin{align*}
+    f_1(i) = 1-2+1 = 0 \\
+    f'_1(x) = 4x^3+4x \\
+    f'_1(i) = -4i + 4i = 0 \\
+    f''_1(x) = 12x^2 + 4 \\
+    f''_1(i) = -12+4 \neq 0 \\
+\end{align*}
+Luego $ p(1) $ es verdadero.
+
+\textbf{Paso inductivo}
+
+Dado $ h \geq 1 $ quiero probar que $ p(h) \implies p(h+1) $
+
+HI: $ f_h(i) = 0 \wedge f'_h(i) = 0 \wedge f''_h(i) \neq 0 $
+
+Qpq: $ f_{h+1}(i) = 0 \wedge f'_{h+1}(i) = 0 \wedge f''_{h+1}(i) \neq 0 $
+
+Pero,
+\begin{align*}
+    &f_{h+1} = (x-i)(f_h + f'_h) \implies f_{h+1}(i) = (i-i)(f_h(i) + f'_h(i)) = 0 \\
+    &f'_{h+1} = (f_h + f'_h) + (x-i)(f'_h + f''_h) \implies f'_{h+1}(i) = 0 + (i-i)(f'_h + f''_h) = 0 \\
+    &f''_{h+1} = f'_h + f''_h + f'_h + f''_h + (x-i)(f'_h + f''_h) \implies f''_{h+1}(i) = 0 + f''_h + 0 + f''_h + 0 = 2f''_h \neq 0
+\end{align*}
+Luego $ p(h) \implies p(h+1); \forall h \geq 1 $
+
+Por lo tanto $ p(n) $ es verdadero, $ \forall n \in \mathbb{N} $
+
+\subsection{Ejercicio 25}
+TODO
+
+\subsection{Ejercicio 26}
+TODO
+
+\subsection{Ejercicio 27}
+Rdo. raíces en $ \mathbb{Q}[x] $: Sea $ f \in \mathbb{Z}[x]: \frac{c}{d} $ es raíz de $ f \iff c | a_n \wedge d|a_0 $ con $ c \mathbb{Z}; d \in \mathbb{N}   $
+
+\subsubsection{Pregunta i}
+Usando el rdo, busco posibles candidatos:
+\begin{align*}
+    &c \in Div(-1) = \{ \pm 1 \} \\
+    &d \in Div_+(2) = \{ 1,2 \} \\
+    \implies &\frac{c}{d} \in \{ \pm 1; \pm \frac{1}{2} \}
+\end{align*}
+Evalúo en cada uno de los posibles candidatos y llego a que los unicos a que cumplen $ f(a) = 0 $ son
+\begin{itemize}
+    \item $ a = \frac{1}{2} $
+    \item $ a = -1 $
+\end{itemize}
+\subsubsection{Pregunta ii}
+
+El criterio de Gauss para encontrar raíces enteras, solo funciona con $ f \in \mathbb{Z}[x] $
+
+Luego tengo que transformar el polinomio en $ \mathbb{Q} $ a uno en $ \mathbb{Z} $,
+\begin{align*}
+    f &= x^5 - \frac{1}{2}x^4 - 2x^3 + \frac{1}{2}x^2 - \frac{7}{2}x - 3 \\
+    2f = h &= 2x^5 - x^4 - 4x^3 + x^2 - 7x - 3 \\
+\end{align*}
+Así, $ \frac{c}{d} $ es raíz de h $ \iff \begin{cases}
+    c|-6 \implies c \in \{ \pm 1, \pm 2, \pm 3, \pm 6 \} \\
+    d|2 \implies d \in \{ 1,2 \}
+\end{cases} $
+
+Evaluando en los candidatos hallados, encuentro que las raíces racionales de f son: $ \{ 2, -\frac{3}{2} \} $
+
+\subsubsection{Pregunta iii}
+Usando el criterio de Gauss, 
+\begin{align*}
+    f(\frac{c}{d}) = 0 \iff \begin{cases}
+        c|-2 \implies c \in \{ \pm 1, \pm 2 \} \\
+        d|1 \implies d = 1
+    \end{cases}
+\end{align*}
+Entonces las posibles raíces enteras de f son $ \{ \pm 1, \pm 2 \} $
+
+Evaluando en los cuatro posibles candidatos se llega a que ninguna anula f. Luego f no tiene raíces enteras.
+
+\subsection{Ejercicio 28}
+\subsubsection{PRegunta i}
+$ f = x^2 +6x - 2 $
+
+Usando la resolvente cuadrática, $ x = \frac{-6 \pm w }{2} $ con $ w^2 = 36-4.-2 = 44 $
+
+Luego, \\
+$ x_1 = -3 + \sqrt[]{11} $ \\
+$ x_2 = -3 - \sqrt[]{11} $ 
+
+Entonces,
+\begin{align*}
+    f &= x^2 + 6x - 2 \text{ es la factorización en } \mathbb{Q}[x] \text{ pues es de grado 2 son raíces en } \mathbb{Q} \\
+    f &= (x-(3+\sqrt[]{11})) \cdot (x-(3-\sqrt[]{11})) \text{ es la factorización en } \mathbb{R}[x]; \mathbb{C}[x] \text{ pues los factores son polinomios irred de gr 1} \\
+\end{align*}
+\subsubsection{Pregunta ii}
+$ f = x^2 + x - 6 $
+
+Usando la resolvente, $ x = \frac{-1 \pm w}{2} $ con $ w^2 = 1-4.-6 = 25 $
+
+Luego, \\
+$ x_1 = \frac{-1+5}{2} = 2 $ \\
+$ x_2 = \frac{-1-5}{2} = -3 $ 
+
+Entonces,
+\begin{align*}
+    f = (x-2)(x-3) \text{ es la factorización en } \mathbb{Q}[x]; \mathbb{R}[x]; \mathbb{C}[x]
+\end{align*}
+
+\subsubsection{Pregunta iii}
+$ f = x^2 - 2x + 10 $
+
+Usando la resolvente, $ x = \frac{2 \pm w}{2} $ con $ w^2 = 4-4.1.10 = -36 \implies w = 6i$
+
+Luego, \\
+$ x_1 = \frac{2+6i}{2} = 1+3i $ \\
+$ x_2 = \frac{2-6i}{2} = 1-3i $ 
+
+Por lo tanto,
+\begin{align*}
+    f &= x^2 - 2x + 10 \text{ es la factorización en } \mathbb{Q}[x]; \mathbb{R}[x] \\
+    f &= (x-(1+3i))\cdot (x-(1-3i)) \text{ es la factorización en } \mathbb{C}[x]
+\end{align*}
+
+\subsection{Ejercicio 29}
+\subsubsection{Pregunta i}
+
+$ f = x^2 + (1+2i)x + 2i $
+
+Usando la resolvente, $ x = \frac{-(1+2i) \pm w}{2} $ con $w$ tal que,
+\begin{align*}
+    w^2 &= (1+2i)^2 - 4.1.2i \\
+    w^2 &= (1+2i)(1+2i) - 8i \\
+    w^2 &= 1+2i+2i-4 - 8i \\
+    w^2 &= -3-4i
+\end{align*}
+Luego busco los $ w = a+bi $ tales que $ w^2 = -3-4i $
+
+Pero $ w^2 = (a+bi) \cdot (a+bi) = a^2 - b^2 + 2abi $ y \\
+$ |w^2| = |-3-4i| \iff |w|^2 = 5 \iff a^2 + b^2 = 5$
+
+Usando la igualdad de números complejos,
+\begin{align*}
+    w^2 = -3-4i \iff \begin{cases}
+        a^2 - b^2 = -3 \\
+        2ab = -4 \\
+        a^2 + b^2 = 5
+    \end{cases}
+\end{align*}
+Luego (1) + (3) $ \implies 2a^2 = 2 \iff a^2 = 1 \iff a = \pm 1 $ \\
+Luego (3) - (1) $ \implies 2b^2 = 8 \iff b^2 = 4 \iff b = \pm 2 $ \\
+
+Usando (2): $ w_1 = 1-2i; w_2 = -1+2i $
+
+Con los w hallados, busco los x;
+\begin{align*}
+    x_1 = \frac{-1-2i + 1 - 2i}{2} = -2i \\
+    x_2 = \frac{-1-2i - 1 + 2i}{2} = -1 \\
+\end{align*}
+Luego $ f = (x+2i)(x+1) $ es la factorización en $ \mathbb{C}[x] $
+
+\subsubsection{Pregunta ii}
+$ f = x^8 - 1 $
+
+Luego busco los $ \alpha \in \mathbb{C}: f(\alpha) = 0 \iff \alpha^8 = 1 \implies \alpha \in G_8 $
+
+Y se que el grupo $ G_8 = \{ c \in \mathbb{C}: c = e^{\frac{2k\pi i}{8}}; 0 \leq k \leq 7 \} $
+
+Por lo tanto, $ f = \prod_{k = 0}^{7}(x-e^{\frac{2k \pi i}{8}}) $ es la factorización en $ \mathbb{C}[x] $
+
+\subsubsection{Pregunta iii}
+$ f = x^6 - (2-2i)^{12} $
+
+Idem ejercicio anterior, busco los $ \alpha \in \mathbb{C}: f(\alpha) = 0 \iff a^6 = (2-2i)^{12} $
+
+Ahora voy a usar la forma polar para hallar los $ \alpha $ que cumplen lo pedido.
+
+Defino $ \alpha = |\alpha| \cdot e^{\theta i} \implies \alpha^6 = |\alpha|^6 \cdot e^{6\theta i} $
+
+Además, $ 2-2i = |2-2i| \cdot e^{\frac{7}{4}\pi i} = \sqrt[]{8} \cdot e^{\frac{7}{4}\pi i} $
+
+Luego $ (2-2i)^{12} = (\sqrt[]{8})^{12} \cdot e^{12\frac{7}{4}\pi i} = 262144 \cdot e^{21\pi i} $
+
+Por lo tanto usando la igualdad de números complejos,
+\begin{align*}
+    a^6 = (2-2i)^{12} \iff \begin{cases}
+        |\alpha|^6 = 262144 \implies |\alpha| = 8 \\
+        6\theta = \pi + 2k \pi \implies \theta = \frac{\pi +2k \pi}{6}
+    \end{cases}
+\end{align*}
+Luego,
+\begin{align*}
+    0 &\leq \theta < 2\pi \\
+    0 &\leq \frac{\pi +2k \pi}{6} < 2\pi \\
+    0 &\leq 2k < 12 \\
+    0 &\leq k < 6 \\
+\end{align*}
+Por lo tanto,
+$ f = \prod_{k = 0}^{5}(x-8\cdot e^{\frac{(1+2k)\pi i}{6}}) $ es la factorización en $ \mathbb{C}[x] $
+
+\subsection{Ejercicio 30}
+
+\subsubsection{Pregunta i}
+$ f = x^6 - 9 $
+
+Veo que $ x^6 = (x^3)^2 $ y $ 9 = 3^2 $ por lo tanto, $ x^6 - 9 $ es diferencia de cuadrados.
+
+Así, $ f = (x^3 - 3 (x^3 + 3)) $ es la factorización en $ \mathbb{Q}[x] $ pues los factores no tienen raíces en $ \mathbb{Q} $
+
+Ahora defino $ g = x^3 - 3 $ y $ h = x^3 + 3 $
+
+Busco raíces de g,
+\begin{align*}
+    g(x) = 0 &\iff x^3 = 3 \\
+    &\iff x = \sqrt[3]{3} \cdot e^{\frac{2k\pi i}{3}}; 0\leq k \leq 2 \\
+\end{align*}
+Luego las raíces de g son,
+\begin{itemize}
+    \item $ x_1 = \sqrt[3]{3} $
+    \item $ x_2 = -\frac{\sqrt[3]{3}}{2} + \frac{\sqrt[6]{243}}{2}i $
+    \item $ x_3 = -\frac{\sqrt[3]{3}}{2} - \frac{\sqrt[6]{243}}{2}i $
+\end{itemize}
+
+Ahora busco raíces de h,
+\begin{align*}
+    h(x) = 0 \iff x^3 = -3 
+\end{align*}
+Defino $ \beta = |\beta|\cdot e^{\theta i} \implies \beta^3 = |\beta|^3 \cdot e^{3\theta i} $
+
+Y se que $ -3 = 3\cdot e^{\pi i} $
+
+Usando la igualdad de números complejos,
+$ \beta^3 = -3 \iff \begin{cases}
+    |\beta|^3 = 3 \implies |\beta| = \sqrt[3]{3} \\
+    3\theta = \pi + 2k\pi \implies \theta = \frac{\pi +2k\pi}{3}; 0\leq k \leq 2
+\end{cases} $
+
+Luego las raíces de h son,
+\begin{itemize}
+    \item $ x_1 = \sqrt[3]{3}\cdot e^{\frac{1}{3}\pi i} = \frac{\sqrt[3]{3} + \sqrt[6]{243}i}{2} $
+    \item $ x_2 = \sqrt[3]{3}\cdot e^{\pi i} = -\sqrt[3]{3} $
+    \item $ x_3 = \sqrt[3]{3}\cdot e^{\frac{1}{3}\pi i} = \frac{\sqrt[3]{3} - \sqrt[6]{243}i}{2} $
+\end{itemize}
+
+Luego queda armar la factorización del polinomio, con todas las raíces halladas. $\square$
+
+\subsubsection{Pregunta ii}
+
+\textbf{En $ \mathbb{Q}[x] $}
+
+Se ve facíl que no tine raíces en $\mathbb{Q}$. Pero el hecho de que sea un polinomio de grado 4 sin raíces, no quiere decir que no
+sea irreducible en $ \mathbb{Q} $ ya que podría ser producto de dos polinomios de grado 2.
+
+Luego,
+\begin{align*}
+    x^4 + 3 &= (x^2 + ax + b)(x^2 + cx + d) \\
+    &= x^4 + (c+a)x^3 + (b+d+ac)x^2 + (ad+cb) \\
+\end{align*}
+Por iguldad de polinomios, $ \begin{cases}
+    1=1 \\
+    0 = a+c \\
+    0 = b+d+ac \\
+    1 = bd
+\end{cases} $
+
+Con un poco de manipulación del sistema, se llega a que no existen soluciones $ a,b,c,d $ que cumplan todas las restricciones.
+
+Luego f es irreducible en $ \mathbb{Q}[x] $
+
+\textbf{En $ \mathbb{C}[x] $}
+
+Busco los $ \alpha \in \mathbb{C}: a^4 = -3 $
+
+Los $ \alpha $ que lo cumplen son:
+\begin{itemize}
+    \item $ \alpha_1 = \sqrt[4]{3} $
+    \item $ \alpha_2 = -\sqrt[4]{3} $
+    \item $ \alpha_3 = \sqrt[4]{3}i $
+    \item $ \alpha_4 = -\sqrt[4]{3}i $
+\end{itemize}
+Luego, $ f = (x-\sqrt[4]{3})(x+\sqrt[4]{3})(x-\sqrt[4]{3}i)(x+\sqrt[4]{3}i) $ es la factorización de f en $ \mathbb{C}[x] $
+
+\textbf{En $ \mathbb{R}[x] $}
+
+Agrupo los conjugados de las raíces complejas.
+
+Luego, $ f = (x-\sqrt[4]{3})(x+\sqrt[4]{3})(x^2 + \sqrt[]{3}) $ es la factorización de f en $ \mathbb{R}[x] $
+
+\subsubsection{Pregunta iii}
+
+$ f = x^4 - x^3 + x^2 - 3x - 6 $
+
+\textbf{En $ \mathbb{Q}[x] $}
+
+Usando el criterio de Gauss, obtengo candidatos en $ \{ \pm 1, \pm 2, \pm 3, \pm 6 \} $
+
+Evaluando, obtengo que $ x = -1 $ y $ x = 2 $ son raíces de f.
+
+Luego, $ f = (x+1)(x-2)(x^2+3) $ es la factorización en $ \mathbb{Q}[x] $
+
+\textbf{En $ \mathbb{R}[x] $}
+
+Dado que $(x^2+3)$ no tiene raíces reales, $ f = (x+1)(x-2)(x^2+3) $ es la factorización en $ \mathbb{R}[x] $
+
+\textbf{En $ \mathbb{C}[x] $}
+
+Busco las raíces complejas de $ (x^2+3) $,
+
+Luego, $ f = (x+1)(x-2)(x-\sqrt[]{3}i)(x+\sqrt[]{3}i) $ es la factorización en $ \mathbb{C}[x] $
+
+\subsection{Ejercicio 31}
+TODO
+
+\subsection{Ejercicio 32}
+Quiero usar la suma geométrica, por lo que separo en casos $ a = 1 $ y $ a \neq 1 $
+
+$ a = 1 \implies f(1) = n \neq 0 \implies a = 1 $ no es raíz de f
+
+$ a\neq 1 \implies f(a) = \sum_{k=0}^{n}a^k = \frac{a^{k+1} - 1}{a-1} = 0 \iff a^{n+1} = 1 \iff a \in G_{n+1} - \{ 1 \}$
+
+Luego $ \#(G_{n+1} - \{-1\}) = n+1-1 = n \implies $ f tiene n raíces $ \implies $ todas las raíces deben ser simples, como se quería probar.
+
+\subsection{Ejercicio 33}
+
+\subsubsection{Pregunta i}
+
+Rdo.: Sea $ a+b\sqrt[]{d}; a,b,c \in \mathbb{Q}; \sqrt[]{d} \not \in \mathbb{Q}; b \neq 0; d > 0 \implies (x-(a+b\sqrt[]{d}))(x-(a-b\sqrt[]{d})) | f $ 
+
+Luego dado que $ 2-\sqrt[]{3} $ es raíz, por el rdo, $ 2+\sqrt[]{3} $ también los es $ \implies (x-(2+\sqrt[]{3})) (x-(2-\sqrt[]{3}))|f $
+\begin{align*}
+    (x-(2+\sqrt[]{3})) (x-(2-\sqrt[]{3})) &= x^2 -2x + \sqrt[]{3}x - 2x + 4 - 2\sqrt[]{3} - \sqrt[]{3}x + 2\sqrt[]{3} - 3 \\
+    &= x^2 + (-2+\sqrt[]{3} - 2 + \sqrt[]{3})x + (4-2\sqrt[]{3} + 2\sqrt[]{3} - 3) \\
+    &= x^2 + 4x + 1 \\
+\end{align*}
+Por lo tanto se que $ x^2 + 4x + 1 |f $
+
+Usando el algoritmo de división, $ f = (x^2 + 4x + 1)(x^3-2x+1) $
+
+Sea ahora $ g = x^3-2x+1 $
+
+Busco raíces de g. Veo a simple vista que $ g(1) = 0 \implies x = 1 $ es raíz de g.
+
+Usando Ruffini, llego a que $ g = (x-1)(x^2+x-1) $
+
+Defino $ h = x^2+x-1 $, $ h = 0 \iff x = \frac{-1 \pm \sqrt[]{5}}{2} $
+
+Usando todo los hallado,
+\begin{itemize}
+    \item $ f = (x^2 -4x + 1)(x-1)(x^2 +x -1) $ es la factorización en $ \mathbb{Q}[x] $
+    \item $ f = (x-2-\sqrt[]{3})(x-2+\sqrt[]{3})(x-1)(x-(\frac{-1+\sqrt[]{5}}{2}))(x-(\frac{-1-\sqrt[]{5}}{2})) $ es la factorización en $ \mathbb{R}[x]; \mathbb{C}[x] $
+\end{itemize}
+
+\subsubsection{Pregunta ii}
+
+Se que $ 1+2i $ es raíz $ \iff 1-2i $ es raíz $ \implies (x-(1+2i))(x-(1-2i)) | f $
+
+Luego $ (x-(1+2i))(x-(1-2i)) = x^2 - 2x+5 $
+
+Usando el algoritmo de división obtengo que $ f = (x^2 - 2x+5)(x^3+2x^2-2x+3) $
+
+Defino $ g = x^3+2x^2-2x+3 $
+
+Por el lema de Gauss, las posibles raíces enteras de g son $  \{ \pm 1; \pm 3 \}$
+
+Evaluando, obtengo que $-3$ es raíz de g
+
+Usando ruffini, $ g = (x+3)(x^2-x+1) $
+
+Sea ahora $ h = x^2-x+1 $, busco sus raíces usando la resolvente cuadrática.
+
+$ h(x) = 0 \iff x = \frac{1 \pm \sqrt[]{3}i}{2} $
+
+Luego $ h = (x-(\frac{1 + \sqrt[]{3}i}{2}))(x-(\frac{1 - \sqrt[]{3}i}{2})) $ 
+
+Con todo lo hallado armo las factorizaciones.
+
+\begin{itemize}
+    \item $ f = (x^2-2x+5)(x+3)(x^2-x+1) $ es la factorización en $ \mathbb{Q}[x] $
+    \item $ f = (x^2-2x+5)(x+3)(x^2-x+1) $ es la factorización en $ \mathbb{R}[x] $
+    \item $ f = (x-(1+2i))(x-(1-2i))(x+3)(x-(\frac{1 + \sqrt[]{3}i}{2}))(x-(\frac{1 - \sqrt[]{3}i}{2})) $ es la factorización en $ \mathbb{C}[x] $
+\end{itemize}
+
+\subsubsection{Pregunta iii}
+
+Se que $ a $ es raíz con $ mult(a, f) = n \iff f^n(a) = 0 \wedge f^{n+1}(a) \neq 0 $
+
+Luego busco la multiplicidad de $ \sqrt[]{2}i $ sabiendo que es raíz multiple $ \implies f(a) = 0 \wedge f'(a) = 0 $
+
+\begin{align*}
+    f''(x) &= 30x^4 + 20x^3 + 60x^2 + 24x + 16 \\
+    f''(\sqrt[]{2}i) &= 30(\sqrt[]{2}i)^4 + 20(\sqrt[]{2}i)^3 + 60(\sqrt[]{2}i)^2 + 24(\sqrt[]{2}i) + 16 \\
+    &= 30.4 - 20.\sqrt[]{8}i - 60.2 + 24(\sqrt[]{2}i) + 16 \\
+    &= 120 - 40.\sqrt[]{2}i - 120 + 24(\sqrt[]{2}i) + 16 \\
+    &= - 40.\sqrt[]{2}i + 24(\sqrt[]{2}i) + 16 \neq 0 \implies mult(\sqrt[]{2}i, f) = 2 \\
+\end{align*}
+
+Luego $ (x-\sqrt[]{2}i)(x+\sqrt[]{2}i) | f \implies (x^2+2)^2 | f \implies x^4 + 4x^2 + 4 |f $
+
+Usando ahora el algoritmo de división, $ f = (x^4 + 4x^2 + 4)(x^2+x+1) $
+
+Defino $ g = x^2+x+1 $ y busco sus raíces usando la resolvente cuadrática.
+
+Luego $ g = (x-(\frac{-1+\sqrt[]{3}i}{2}))(x-(\frac{-1-\sqrt[]{3}i}{2})) $
+
+Con lo hallado armo las factorizaciones.
+
+\begin{itemize}
+    \item $ f = (x^2+x+1)(x^2+2)^2 $ es la factorización en $ \mathbb{Q}[x]; \mathbb{R}[x] $
+    \item $ f = (x-(\frac{-1+\sqrt[]{3}i}{2}))(x-(\frac{-1-\sqrt[]{3}i}{2}))(x-\sqrt[]{2}i)^2(x+\sqrt[]{2}i)^2 $ es la factorización en $ \mathbb{C}[x] $
+\end{itemize}
+
+\subsubsection{Pregunta iv}
+
+Se que existe una raíz imaginaria pura, es decir del tipo $ bi $
+
+Luego $ bi $ es raíz de sii,
+\begin{align*}
+    f(bi) = 0 &\iff (bi)^4 + 2(bi)^3 + 3(bi)^2 + 10(bi) - 10 = 0 \\
+    &\iff b^4 - 2b^3i - 3b^2 + 10bi - 10 = 0 \\
+    &\iff b^4 - 3b^2 - 10 + (- 2b^3  + 10b)i  = 0 \\
+    &\iff \begin{cases}
+        b^4 - 3b^2 - 10 = 0 \\
+        - 2b^3  + 10b = 0
+    \end{cases} \\
+\end{align*}
+De la segunda ecuación obtengo que $ b = 0 \vee b = \pm \sqrt[]{5} $
+
+Reemplazando en la primera $ b = 0 \implies 0^4 - 3.0^2 - 10 = -10 \neq 0 \implies b= 0 $ no sirve.
+
+Y reemplazando en la primera $ b = \sqrt[]{5} \implies (\sqrt[]{5})^4 - 3(\sqrt[]{5})^2 - 10 = 0 \implies b = \sqrt[]{5} $ sirve.
+
+Luego $ \pm \sqrt[]{5}i $ son raíces de f $ \iff (x-\sqrt[]{5}i)(x+\sqrt[]{5}i) | f $
+
+Por lo tanto, $ (x-\sqrt[]{5}i)(x+\sqrt[]{5}i) = (x^2+5) | f $
+
+Usando el algoritmo de division, obtngo que $ f = (x^2+5)(x^2+2x-2) $
+
+Defino $ g = x^2+2x-2 $ y busco sus raíces usando la resolvente cuadrática.
+
+Luego $ g = (x-1)(x+3) $
+
+Con lo hallado armo las factorizaciones.
+\begin{itemize}
+    \item $ f = (x^2 + 5)(x-1)(x+3) $ es la factorización en $ \mathbb{Q}[x]; \mathbb{R}[x] $
+    \item $ f = (x-\sqrt[]{5}i)(x+\sqrt[]{5}i)(x-1)(x+3) $ es la factorización en $ \mathbb{C}[x] $
+\end{itemize}
+
+\subsubsection{Pregunta v}
+
+Se que sea g un polinomio, $ g|f \wedge g|x^3+1 \implies g|(f:x^3+1) $, luego busco $ MCD(f, x^3+1) $
+
+Usando el algoritmo de Euclides, $ MCD(f, x^3+1) = x^2-x+1 $
+
+Por lo tanto, se que $ x^2-x+1 | f $
+
+Usando el algoritmo de división, $ f = (x^2-x+1)(x^3-2x^2-5x+10) $
+
+Defino $ h = x^3-2x^2-5x+10 $ y busco sus raíces.
+
+Usando el lema de Gauss obtengo posibles candidatos a raíces enteras: $ \{ \pm 1, \pm 2, \pm 5, \pm 10 \} $
+
+Evaluando en los candidatos obtengo que $ x = 2 $ es raíz de h.
+
+Usando Ruffini, $ h = (x-2)(x^2-5) $
+
+Defino $ k = x^2 - 5 $ y busco sus raíces usando la resolvente cuadrática.
+
+Luego, $ k = (x-\sqrt[]{5})(x+\sqrt[]{5}) $
+
+Defino $ m = x^2-x+1 $ y busco sus raíces usando la resolvente cuadrática.
+
+Luego, $ m = (x-(\frac{1+\sqrt[]{3}i}{2}))(x-(\frac{1-\sqrt[]{3}i}{2})) $
+
+Con todo lo hallado armo las factorizaciones.
+
+\begin{itemize}
+    \item $ f = (x^2-x+1)(x-2)(x^2-5) $ es la factorización en $ \mathbb{Q}[x] $
+    \item $ f = (x^2-x+1)(x-2)(x-\sqrt[]{5})(x+\sqrt[]{5}) $ es la factorización en $ \mathbb{R}[x] $
+    \item $ f = (x-(\frac{1+\sqrt[]{3}i}{2}))(x-(\frac{1-\sqrt[]{3}i}{2}))(x-2)(x-\sqrt[]{5})(x+\sqrt[]{5}) $ es la factorización en $ \mathbb{C}[x] $
+\end{itemize}
+
+\subsection{Ejercicio 34}
+
+$ a \in \mathbb{Q} $ es raíz doble $ f(a) =  0 \wedge f'(a) = 0 \wedge f''(a) \neq 0 $
+
+Luego,
+\begin{align*}
+    f'(x) = 4x^3 - 3(a+4)x^2 + 2(4a+5)x-(5a+2) \\
+    f''(x) = 12x^2 - 6(a+4)x + 8a + 10
+\end{align*}
+Ahora busco los $ a $ que cumplan lo pedido, evalúo $f$ en $a$,
+\begin{align*}
+    f(a) = 0 &\iff a^4 - (a+4)a^3 + (4a+5)a^2 - (5a+2)a + 2a = 0 \\
+    &\iff a^4 - a^4 - 4a^3 + 4a^3 + 5a^2 - 5a^2 -2a + 2a = 0 \\
+    &\iff 0 = 0 \\
+\end{align*}
+Luego $ f(a) = 0; \forall a \in \mathbb{Q} $
+
+Ahora evalúo $f'$ en $a$,
+\begin{align*}
+    f'(a) = 0 &\iff 4a^3 - 3(a+4)a^2 + 2(4a+5)a-(5a+2) = 0 \\ 
+    &\iff 4a^3 - 3a^3 - 12a^2 + +8a^2 + 10a -5a - 2 = 0 \\ 
+    &\iff a^3 - 4a^2 + 5a - 2 = 0 \\ 
+\end{align*}
+Luego busco las raíces enteras de $ g = a^3 - 4a^2 + 5a - 2 $
+
+Usando el lema de Gauss, los candidatos son: $ \{ \pm 1, \pm 2 \} $
+
+Evaluando obtengo que $1$ es raíz de g. Usando Ruffini obtengo que,
+
+$ g = (a-1)(a^2-3a+2) $
+
+Luego defino $ h = a^2-3a+2 $ y busco sus raíces usando la resolvente cuadrática.
+
+Obtengo que $ h = (a-1)(a-2) $
+
+Por lo tanto, $ g = (a-1)^2(a-2) $
+
+Entonces los únicos valores de $a$ tales que la derivada primera se anula son $ a = 1; a = 2 $
+
+Ahora, para que sean raíces dobles no deben anular la derivada segunda,
+\begin{align*}
+    f''(1) \neq 0 &\iff 12.1^2 - 6(1+4)1 + 8.1 + 10 \neq 0 \\
+    &\iff 12 - 30 + 8 + 10 \neq 0 \\
+    &\iff 0 \neq 0 \\
+\end{align*}
+Luego $ a = 1 $ no cumple lo pedido.
+\begin{align*}
+    f''(2) \neq 0 &\iff 12.2^2 - 6(2+4)2 + 8.2 + 10 \neq 0 \\
+    &\iff 12.4 - 6.6.2 + 8.2 + 10 \neq 0 \\
+    &\iff 48 - 72 + 16 + 10 \neq 0 \\
+    &\iff 2 \neq 0 \\
+\end{align*}
+Luego $ a = 2 $ cumple lo pedido.
+
+Entonces, $ f = x^4 - 6x^3 + 13x^2 - 12x + 4 $
+
+Se que $ a = 2 $ es raíz doble $ \iff (x-2)^2 | f \iff (x^2-4x+4) | f $
+
+Usando el algoritmo de división, $ f = (x-2)^2(x^2-2x+1) $
+
+Y se ve que $ x^2-2x+1 $ tiene forma del binomio cuadrático $ (x-1)^2 $
+
+Por lo tanto, $ f = (x-2)^2(x-1)^2 $ es la factorización de $f$ en $ \mathbb{Q}[x]; \mathbb{R}[x]; \mathbb{C}[x] $
+
+\subsection{Ejercicio 35}
+
+Se que $ w \in G_6 $ es raíz de $f$ pero $ w \not \in G_3 $
+
+Luego $ w^6 = 1 \implies (w^2)^3 = 1 \iff w^2 = 1 \implies w=-1 $
+
+Entonces busco $ a \in \mathbb{C}: (x+1)|f $
+\begin{align*}
+    f(-1) = 0 &\iff 1 - 1 -3 -2 +1 +3 +a =0 \\ 
+    &\iff -1 + a =0 \\ 
+    &\iff a = 1 \\ 
+\end{align*}
+
+Luego $ f = x^6 + x^5 - 3x^4 + 2x^3 + x^2 -3x + 1 $
+
+Usando el lema de Gauss y Ruffini obtengo las raíces enteras y la factorización de $f$.
+
+Luego $ f = (x - 1) (x + 1) (x^2 - x + 1) (x^2 + 2 x - 1) $
+
+Usando la resolvente cuadrática,
+
+$ (x^2 - x + 1) = (x-(\frac{1}{2} - \frac{\sqrt[]{3}i}{2}))(x-(-1-\sqrt[]{2})) $
+
+$ (x^2 + 2 x - 1) = (x-(-1-\sqrt[]{2}))(x-(\sqrt[]{2} - 1)) $
+
+Luego,
+\begin{itemize}
+    \item $ f = (x - 1) (x + 1) (x^2 - x + 1) (x^2 + 2 x - 1) $ es la factorización en $ \mathbb{Q}[x] $
+    \item $ f = (x - 1) (x + 1) (x^2 - x + 1) (x-(-1-\sqrt[]{2}))(x-(\sqrt[]{2} - 1)) $ es la factorización en $ \mathbb{R}[x] $
+    \item $ f = (x - 1) (x + 1)(x-(\frac{1}{2} + \frac{\sqrt[]{3}i}{2}))(x-(\frac{1}{2} - \frac{\sqrt[]{3}i}{2}))(x-(-1-\sqrt[]{2}))(x-(\sqrt[]{2} - 1)) $ es la factorización en $ \mathbb{C}[x] $
+\end{itemize}
+
+\subsection{Ejercicio 36}
+
+\subsubsection{Pregunta i}
+
+Por TFA se que $ x^2|(f:f') $ y que $ (x^2+1) | (f:f') $
+
+Luego,
+\begin{align*}
+    &f(0) = 0 \wedge f'(0) = 0 \wedge mult(0,f') = 2 \implies mult(0,f) = 3 \\
+    &f(1) = 0 \wedge f'(1) = 0 \wedge mult(1,f') = 1 \implies mult(1,f) = 2 \\
+    &f(-1) = 0 \wedge f'(-1) = 0 \wedge mult(-1,f') = 1 \implies mult(-1,f) = 2 \\
+\end{align*}
+Por lo tanto para cumplir la primer condición, $ f = x^3(x-1)^2(x+1)^2 $ es el de menor grado que cumple lo pedido.
+
+\subsubsection{Pregunta ii}
+
+\begin{align*}
+    (f:f') &= x^5-5x^4+\frac{25}{4}x^3 \\
+    (f:f') &= x^3(x^2-5x+\frac{25}{4}) \\
+    (f:f') &= x^3(x-\frac{5}{2})^2 \\
+\end{align*}
+Luego $ f = x^4(x-\frac{5}{2})^3 $
+\begin{align*}
+    f(1) = 3 &\iff a.1.(1-\frac{5}{2})^3 = 3 \\
+    &\iff a.(-\frac{3}{2})^3 = 3 \\
+    &\iff a = 3. -\frac{8}{23} = -\frac{8}{9} \\
+\end{align*}
+Luego $ f = -\frac{8}{9}x^3(x-\frac{5}{2})^2 $
+
+\subsubsection{Pregunta iii}
+TODO
+
+\subsubsection{Pregunta iv}
+TODO
+
+\subsection{Ejercicio 37}
+
+Sea $ g = \alpha x^3 + \beta x^2 + \sigma x + \theta  $ un polinomio genérico de grado 3 con raíces $ a, b, c $
+\begin{align*}
+    g&= \alpha((x-a)(x-b)(x-c)) \\
+    &= \alpha((x^2 - bx - ax + ab)(x-c)) \\
+    &= \alpha(x^3 - x^2c - bx^2 + bcx - ax^2 + acx + abx - abc) \\
+    &= \alpha(x^3 + (-a-b-c)x^2 + (bc+ac+ab)x - abc) \\
+    &= \alpha x^3 + \alpha(-a-b-c)x^2 + \alpha(bc+ac+ab)x - \alpha abc \\
+\end{align*}
+Luego,
+\begin{itemize}
+    \item $ -\frac{\beta}{\alpha} = a+b+c $
+    \item $ \frac{\sigma}{\alpha} = bc + ac + ab $
+    \item $ -\frac{\theta}{\alpha} = abc $
+\end{itemize}
+Ahora sea $ f = 2x^3 - 3x^2 + 4x + 1 \implies \alpha = 2; \beta = -3; \sigma = 4; \theta = 1 $ con $ a,b,c $ raíces de f.
+
+\begin{itemize}
+    \item $ a+b+c = \frac{3}{2} $
+    \item $ ab + ac + bc = \frac{4}{2} = 2 $
+    \item $ abc = -\frac{1}{2} $
+\end{itemize}
+
+\subsection{Ejercicio 38}
+
+\subsubsection{Pregunta i}
+Se que tiene una raíz real, luego $ \exists a \in \mathbb{R}: f(a) = 0 $, la busco.
+
+\begin{align*}
+    f(a) = 0 &\iff a^4 - (i+4)a^3 + (8+4i)a^2 -  (2i+24)a + 12 = 0 \\
+    &\iff a^4 - a^3i + 4a^3 + 8a^2 + 4a^2i - 2ai - 24a + 12 = 0 \\
+    &\iff (a^4 + 4a^3 + 8a^2 - 24a + 12) + (- a^3 + 4a^2 - 2a)i  = 0 \\
+    &\iff \begin{cases}
+        a^4 + 4a^3 + 8a^2 - 24a + 12 = 0 \\
+        - a^3 + 4a^2 - 2a = 0
+    \end{cases} \\
+\end{align*}
+Del sistema obtengo que $ a = 2\pm\sqrt[]{2} $ cumplen lo pedido
+
+Luego $ (x-(2+\sqrt[]{2}))(x-(2-\sqrt[]{2})) | f \iff (x^2 - 4x + 2) |f $
+
+Usando el algoritmo de división, $ f = (x^2 - 4x + 2)(x^2 - ix + 6) $
+
+Defino $ g = x^2 -ix + 6 $ y busco sus raíces usando la resolvente cuadrática.
+
+Luego $ g = (x-3i)(x+3i) $
+
+Y por lo tanto, $ f = (x-(2+\sqrt[]{2}))(x-(2-\sqrt[]{2}))(x-3i)(x+3i) $ es la factorización de f en $ \mathbb{C}[x] $
+
+\subsubsection{Pregunta ii}
+TODO
+
+\subsection{Ejercicio 39}
+TODO
+
+\end{document}

@@ -1,0 +1,1478 @@
+\input{macrosAlgebra}
+\usepackage{caratula}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+\decimalpoint
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\setcounter{tocdepth}{2} % profundidad de indice
+\setcounter{section}{4} % nro de section
+\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
+\graphicspath{ {images/} }
+
+% End latex config
+
+\begin{document}
+
+\titulo{Práctica 5}
+\fecha{2do cuatrimestre 2021}
+\materia{Álgebra I}
+\integrante{Yago Pajariño}{546/21}{ypajarino@dc.uba.ar}
+
+%Carátula
+\maketitle
+\newpage
+
+%Indice
+\tableofcontents
+\newpage
+
+% Aca empieza lo propio del documento
+\section{Práctica 5}
+
+\subsection{Ejercicio 1}
+
+\subsubsection{Pregunta i}
+
+Busco los $ (a,b) \in \mathbb{Z}^2 $ tales que $ 7a+11b = 10 $
+
+\textbf{Verifico que existe solución}
+
+Dado que $ (7:11) = 1 \implies 1|10 \implies $ existe solución.
+
+\textbf{Busco una solución particular}
+
+Por propiedades del MCD se que existen $ (s,t) \in \mathbb{Z}^2 $ tales que:
+\begin{align*}
+    7.s + 11.t &= 1 \\
+    7.(-3) + 11.2 &= 1 \\
+    7.(-3).10 + 11.2.10 &= 1.10 \\
+    7.(-30) + 11.20 &= 10 \\
+    -210+220 &= 10 \\
+\end{align*}
+
+Luego $ (-30,20) $ es solución particular.
+
+\textbf{Solución del homogeneo asociado}
+
+$ 7.a+11.b = 0 \iff 7.a = -11.b \iff -11|7.a \iff -11|a \iff a = -11.k $
+
+$ 7.a+11.b = 0 \iff 7.a = -11.b \iff 7(-11.k) = 11.b \iff b = 7.k$
+
+Luego $ (-11.k, 7.k) $ es solución del homogeneo asociado, $ \forall k \in \mathbb{Z} $
+
+\textbf{Solución general}
+
+Uniendo las dos soluciones halladas previamente,
+
+$ S = (-11.k, 7.k) + (-30,20) = (-11.k-30,7.k+20); \forall k \in \mathbb{Z} $
+
+\textbf{Verifico}
+
+Sea $ (a,b) = (-11.k-30,7.k+20) $ luego,
+\begin{align*}
+    7a+11b = 10 &\iff 7(-11.k-30) + 11(7.k+20) = 10\\ 
+    &\iff 7(-11.k-30) + 11(7.k+20) = 10 \\
+    &\iff 7.-11.k-210 + 11.7.k+220 = 10 \\
+    &\iff -210 + 220 = 10 \\
+\end{align*}
+
+Verificado.
+
+\subsubsection{Pregunta ii}
+
+Busco los $ (a,b) \in \mathbb{Z}^2 $ tales que $ 20a+16b = 30 $
+
+\textbf{Verifico que existe solución}
+
+$ (20:16) = 4 \wedge 4\not | 30 $
+
+Por lo tanto no hay solución en $ \mathbb{Z}^2 $ para la ecuación.
+
+\subsubsection{Pregunta iii}
+
+Busco los $ (a,b) \in \mathbb{Z}^2 $ tales que $ 39a-24b = 6 $
+
+\textbf{Verifico que existe solución}
+
+$ (39:24) = 3 \wedge 3|6 $ luego existe solución en $ \mathbb{z}^2 $
+
+\textbf{Coprimizar}
+
+Dado que el MCD es disinto a 1, debo coprimizar la ecuación para no perder soluciones.
+
+$ 20a+16b = 30 \leftrightsquigarrow 13a-8b = 2$
+
+\textbf{Busco una solución particular}
+
+$ 13.(2) - 8.(3) = 26-24 = 2 $
+
+Luego $ (2,3) $ es solución particular.
+
+\textbf{Solución del homogeneo asociado}
+
+$ 13a -8b = 0 \iff 13a = 8b \implies 13|8b \iff 13|b \iff b = 13k $
+
+$ 13a -8b = 0 \iff 13a = 8b \iff 13a = 8(13k) \iff a = 8k $
+
+Luego $ (8k,13k) $ es solución del homogeneo asociado, $ \forall k \in \mathbb{Z} $
+
+\textbf{Solución general}
+
+Uniendo las dos soluciones halladas previamente,
+
+$ S = (8k,13k) + (2,3) = (8k+2, 13k+3); \forall k \in \mathbb{Z} $
+
+\textbf{Verifico}
+
+Sea $ (a,b) = (8k+2, 13k+3) $ luego,
+\begin{align*}
+    39a-24b = 6 &\iff 39(8k+2)-24(13k+3) = 6\\ 
+    &\iff 39.8k+78-24.13k-72 = 6\\ 
+    &\iff 78-72 = 6\\ 
+\end{align*}
+
+Verificado.
+
+\subsubsection{Pregunta iv}
+
+Busco los $ (a,b) \in \mathbb{Z}^2 $ tales que $ 1555a-300b = 11 $
+
+\textbf{Verifico que existe solución}
+
+$ (1555:300) = 5 \wedge 4\not | 5 $
+
+Por lo tanto no hay solución en $ \mathbb{Z}^2 $ para la ecuación.
+
+\subsection{Ejercicio 2}
+
+Primero busco soluciones $ (a,b) \in \mathbb{Z}^2 $ para la ecuación $ 33a+9b=120 $
+
+\textbf{Verifico que existe solución}
+
+$ (33:9) = 3 \wedge 3|120 \implies $ existe solución.
+
+\textbf{Coprimizar}
+
+Dado que el MCD es disinto a 1, debo coprimizar la ecuación para no perder soluciones.
+
+$ 33a+9b = 120 \leftrightsquigarrow 11a+3b=40$
+
+\textbf{Busco una solución particular}
+
+Por propiedades del MCD se que existen $ (s,t) \in \mathbb{Z}^2 $ tales que:
+\begin{align*}
+    11.s + 3.t &= 1 \\
+    11.(2) + 3.(-7) &= 1 \\
+    11.2.(40) + 3.(-7).(40) &= 1.(40) \\
+    11.80 + 3.(-280) &= 40 \\
+\end{align*}
+Luego $ (80,-280) $ es solución particular.
+
+\textbf{Solución del homogeneo asociado}
+
+$ 11a +3b = 0 \iff 11a = -3b \implies 11|-3b \implies 11|b \implies b=11k $
+
+$ 11a +3b = 0 \iff 11a = -3b \implies 11a = -3(11k) \implies a = -3k $
+
+Luego $ (-3k,11k) $ es solución del homogeneo asociado, $ \forall k \in \mathbb{Z} $
+
+\textbf{Solución general}
+
+Uniendo las dos soluciones halladas previamente,
+
+$ S = (-3k,11k) + (80,-280) = (-3k+80, 11k-280); \forall k \in \mathbb{Z} $
+
+Luego tengo definidas las restricciones para a y b de tal forma que cumplan con la diofántica, ahora uso los datos de divisibilidad.
+
+$ a = -3k+80 \implies -3k+80 \equiv 0(4) \implies k \equiv 0(4)$
+
+$ b = 11k-280 \implies 11k-280 \equiv 0(8) \implies k \equiv 0(8)$
+
+Pero $ k \equiv 0(8) \iff k \equiv 0(4) $
+
+Luego $ k = 8n \implies a = 3(8n) + 80 \wedge b=11(8n)-280; n \in \mathbb{Z}$
+
+Rta.: $ (a,b) = (24n+80, 88n-280); \forall n \in \mathbb{Z} $
+
+\subsection{Ejercicio 3}
+
+Busco los $ (a,b) \in \mathbb{Z}^2 $ que cumplen $ 39a+48b=135 $
+
+\textbf{Verifico que existe solución}
+
+$ (39:135) = 3 \wedge 3|135 \implies $ existe solución.
+
+\textbf{Coprimizar}
+
+Dado que el MCD es disinto a 1, debo coprimizar la ecuación para no perder soluciones.
+
+$ 39a+48b=135 \leftrightsquigarrow 13a+16b=45$
+
+\textbf{Busco una solución particular}
+
+$ (225,-180) $ es solución particular.
+
+\textbf{Solución del homogeneo asociado}
+
+$ 13a +16b = 0 \iff 13a = -16b \implies 13|-16b \implies 13|b \implies b=13k $
+
+$ 13a +16b = 0 \iff 13a = -16b \implies 13a = -16(13k) \implies a = -16k $
+
+Luego $ (-16k,13k) $ es solución del homogeneo asociado, $ \forall k \in \mathbb{Z} $
+
+\textbf{Solución general}
+
+Uniendo las dos soluciones halladas previamente,
+
+$ S = (-16k,13k) + (225,-180) = (-16k+225,13k-180); \forall k \in \mathbb{Z} $
+
+Luego, \\
+$ a \geq 0 \implies -16k+225 \geq 0 \implies 16k \leq 225 \implies k \leq \frac{225}{16} \implies k \leq 14 $ \\
+$ b \geq 0 \implies 13k-180 \geq 0 \implies 13k \geq 180 \implies k \geq \frac{180}{13} \implies k \geq 14 $
+
+Luego $ 14 \leq k \leq 14 \implies k = 14 \implies $ se compran 1 unidad de a y 2 de b, gastando 135 pesos.
+
+\subsection{Ejercicio 4}
+
+\begin{enumerate}
+    \item $ 17x \equiv 3(11) \iff 6x \equiv 3(11) \iff 2.6 \equiv 2.3(11) \iff x \equiv 6(11) $
+    \item $ 56x \equiv 28(35) \iff 21x \equiv 28(35) \iff 3x \equiv 4(5) \iff 6x \equiv 8(5) \iff x \equiv 3(5) $
+    \item $ 56x \equiv 2(884) $ No tiene solución pues $ (56:884) = 4 \not | 2 $
+    \item $ 78x \equiv 30(12126) \iff 13x\equiv 5(2021) \iff 311.13x \equiv 311.5(2021) \iff x \equiv 1551(2021) $
+\end{enumerate}
+
+\subsection{Ejercicio 5}
+
+Primero resuelvo la diofántica: busco $ (a,b) \in \mathbb{Z}^2: 28a+10b = 26 $
+
+\textbf{Verifico que existe solución}
+
+$ (28:10) = 2 \wedge 2|26 \implies $ existe solución.
+
+\textbf{Coprimizar}
+
+Dado que el MCD es disinto a 1, debo coprimizar la ecuación para no perder soluciones.
+
+$ 28a+10b =26 \leftrightsquigarrow 14a+5b=13$
+
+\textbf{Busco una solución particular}
+
+$ (-13,39) $ es solución particular.
+
+\textbf{Solución del homogeneo asociado}
+
+$ 14a+5b = 0 \iff 14a = -5b \implies 14|-5b \implies 14|b \implies b=14k $
+
+$ 14a+5b = 0 \iff 14a = -5b \implies 14a = -5(14k) \implies a = -5k $
+
+Luego $ (-5k, 14k) $ es solución del homogeneo asociado, $ \forall k \in \mathbb{Z} $
+
+\textbf{Solución general}
+
+Uniendo las dos soluciones halladas previamente,
+
+$ S = (-5k, 14k) + (-13,39) = (-5k-13, 14k+39); \forall k \in \mathbb{Z} $
+
+Luego $ a = -5-13 \wedge b= 14k+39 $. Usando el dato de la congruencia,
+\begin{align*}
+    b\equiv 2a(5) &\iff 14k+39 \equiv 2(-5k-13)(5) \\
+    &\iff 4k+4 \equiv 4(5) \\
+    &\iff 4(k+1) \equiv 4(5) \\
+    &\iff k+1 \equiv 1(5) \\
+    &\iff k \equiv 0(5) \\
+\end{align*}
+Luego se que $ k = 5n; n \in \mathbb{Z} $
+
+Por lo tanto, las soluciones serán $ (a,b) = (-25n-13, 70n+39 ); n \in \mathbb{Z} $
+
+\subsection{Ejercicio 6}
+
+\begin{align*}
+    7a \equiv 5(18) &\iff (-5).7.a \equiv (-5).5(18) \\  
+    &\iff -35a \equiv -25(18) \\
+    &\iff a \equiv 11(18)
+\end{align*}
+Luego el resto de dividir a $a$ por 18 es 11.
+
+\subsection{Ejercicio 7}
+Primero busco los $ (x,y) \in \mathbb{Z}^2: 110x+250y=100 $
+
+\textbf{Verifico que existe solución}
+
+$ (110:250) = 10 \wedge 10|100 \implies $ existe solución.
+
+\textbf{Coprimizar}
+
+Dado que el MCD es disinto a 1, debo coprimizar la ecuación para no perder soluciones.
+
+$ 110x+250y =100 \leftrightsquigarrow 11x+25y=10$
+
+\textbf{Busco una solución particular}
+
+$ (-90,40) $ es solución particular.
+
+\textbf{Solución del homogeneo asociado}
+
+$ 11x+25y = 0 \iff 11x = -25y \implies 11|-25y \implies 11|y \implies y=11k $
+
+$ 11x+25y = 0 \iff 11x = -25y \implies 11x=-25(11k) \implies x = -25k $
+
+Luego $ (-25k, 11k) $ es solución del homogeneo asociado, $ \forall k \in \mathbb{Z} $
+
+\textbf{Solución general}
+
+Uniendo las dos soluciones halladas previamente,
+
+$ S = (-25k, 11k) + (-90,40) = (-25k-90, 11k+40); \forall k \in \mathbb{Z} $
+
+Luego $ x = -25k-90 \wedge y= 11k+40 $,
+\begin{align*}
+    37^2 |(x-y)^{4321} &\iff 37^2 | (-25k-90-11k-40)^{4321} \\
+    &\iff 37^2 | (-36k-130)^{4321} \\
+\end{align*}
+
+Pero por propiedades de la divisibilidad,
+\begin{align*}
+    37^2 | (-36k-130)^{4321} &\iff 37|(-36k-130) \\
+    &\iff -36k \equiv 130(37) \\
+    &\iff k \equiv 4(37) \\
+\end{align*}
+
+Por lo tanto $ (x, y) = (-25n-90, 11n+40) $ para todo $ n \equiv 4(37) $
+
+\subsection{Ejercicio 8}
+
+Sea $ d = (2a-3:4a^2+10a-10) $
+
+Busco llegar a una expresión del tipo $ d|n $ con $ n \in \mathbb{Z} $
+
+Luego,
+\begin{align*}
+    d|2a-3 \wedge d|4a^2+10a-10 &\iff d|2a(2a-3) - 4a^2-10a+10 \\
+    &\iff d|4a^2-6a-4a^2-10a+10 \\
+    &\iff d|-16a+10 \\
+\end{align*}
+Por lo tanto,
+\begin{align*}
+    \iff d|-16a+10 \wedge d|2a-3 &\iff d|-16a+10+8(2a-3) \\
+    &\iff d|-16a+10+10a-24 \\
+    &\iff d|-14 \\
+    &\iff d \in Div_+(-14) = \{ 1,2,7,14 \} \\
+\end{align*}
+\begin{itemize}
+    \item $ d = 2 \implies 2|2a-3 \implies 2a-3 \equiv 0(2) \implies 0\equiv 3(2) $ ABS
+    \item $ d = 7 \implies 7|2a-3 \implies 2a-3 \equiv 0(7) \implies 2a\equiv 3(7) \implies a \equiv 5(7) $
+\end{itemize}
+
+Luego con $ a \equiv 5(7) $ se tiene,
+\begin{align*}
+    4a^2+10a-10 &\equiv 4.25+10.5-10 (7) \\
+    &\equiv 2+1+4 (7) \\
+    &\equiv 7 (7) \\
+    &\equiv 0 (7) \\
+\end{align*}
+
+Así, para $ a \equiv 5(7) $ el MCD es igual a 7. No pruebo con 14 ya que $ 14=2.7 $ y si $ 2\not | 2a-3 $ tampoco lo hará 14.
+
+Rta.: Con $ a \equiv 5(7) $ el MCD $ \neq 1 $
+
+\subsection{Ejercicio 9}
+
+Sea $ d = (5a+8:7a+3) $
+
+Busco una expresión del tipo $ d|n $ con $ n \in \mathbb{Z} $
+\begin{align*}
+    d|5a+8 \wedge d|7a+3 &\iff d|7(5a+8) - 5(7a+3) \\
+    &\iff d|35a+56-35a-15 \\
+    &\iff d|41 \\
+\end{align*}
+
+Luego $ d \in Div_+(41) \iff d \in \{ 1,41 \} $
+
+Con $ d = 41 $,
+\begin{align*}
+    d = 41 &\implies 41|5a+8 \\
+    &\iff 5a+8 \equiv 0 (41) \\
+    &\iff 5a\equiv 33 (41) \\
+    &\iff 8.5a\equiv 8.33 (41) \\
+    &\iff -a\equiv 18 (41) \\
+    &\iff a\equiv 23 (41) \\
+\end{align*}
+Con $ a\equiv 23(41) $ \\
+$ 7a+3 \equiv 7.23+3 \equiv 0(41) $
+
+Rta.: $ \begin{cases}
+    (5a+8:7a+3) = 41 & a\equiv 23(41) \\
+    (5a+8:7a+3) = 1 & a \not \equiv 23(41) \\
+\end{cases} $
+
+\subsection{Ejercicio 10}
+
+\subsubsection{Pregunta i}
+
+$ \begin{cases}
+    a\equiv 3(10) \\
+    a\equiv 2(7) \\
+    a\equiv 5(9) \\
+\end{cases} $
+
+El TCR me asegura que existe una solución $ x\equiv n (630) $ con $ 0\leq n \leq 630 $ pues 10,7,9 son primos dos a dos.
+
+Quiebro el sistema de ecuaciones en tres.
+
+S1: $ \begin{cases}
+    a\equiv 3(10) \\
+    a\equiv 0(7) \\
+    a\equiv 0(9) \\
+\end{cases} $
+S2: $ \begin{cases}
+    a\equiv 0(10) \\
+    a\equiv 2(7) \\
+    a\equiv 0(9) \\
+\end{cases} $
+S3: $ \begin{cases}
+    a\equiv 0(10) \\
+    a\equiv 0(7) \\
+    a\equiv 5(9) \\
+\end{cases} $
+
+Busco soluciones a cada sistema por separado.
+
+S1, $ \begin{cases}
+    0\equiv 3(10) \\
+    0\equiv 0(63) \\
+\end{cases} \implies a = 63k \implies 63k \equiv 3(10) \implies 3k \equiv 3(10) \implies k \equiv 1(10)$ 
+
+Luego $ a = 63.k = 63.1 = 63 $
+
+S2, $ \begin{cases}
+    a\equiv 2(7) \\
+    a\equiv 0(90) \\
+\end{cases} \implies a = 90k \implies 90k \equiv 2(7) \implies 6k \equiv 2(7) \implies k \equiv 5(7) $
+
+Luego $ a = 90k = 90.5 = 450 $
+
+S3, $ \begin{cases}
+    a\equiv 5(9) \\
+    a\equiv 0(70) \\
+\end{cases} \implies a = 70k \implies 70k \equiv 5(9) \implies 7k \equiv 5(9) \implies k \equiv 2(9) $
+
+Luego $ a = 70.k = 70.2 = 140 $
+
+Por lo tanto se que $ x\equiv 63+450+140 = 653 (630)$ es solución al sistema.
+
+Rta.: $ x \equiv 653 \equiv 23(630) $ es solución al sistema.
+
+\subsubsection{Pregunta ii}
+
+$ \begin{cases}
+    a\equiv 1(6) \\
+    a\equiv 2(20) \\
+    a\equiv 3(9) \\
+\end{cases} 
+\iff \begin{cases}
+    a\equiv 1(3) \\
+    a\equiv 1(2) \\
+    a\equiv 2(4) \implies a\equiv 0(2) \\
+    a\equiv 2(5) \\
+    a\equiv 3(9) \implies a\equiv 0(3) \\
+\end{cases} $
+Luego el sistema es imcompatible.
+
+\subsubsection{Pregunta iii}
+$ \begin{cases}
+    a\equiv 1(12) \\
+    a\equiv 7(10) \\
+    a\equiv 4(9) \\
+\end{cases} 
+\iff \begin{cases}
+    a\equiv 1(3) \\
+    a\equiv 1(4) \implies a \equiv 1(2) \\
+    a\equiv 7(5) \\
+    a\equiv 7(2) \implies a \equiv 1(2) \\
+    a\equiv 4(9) \implies a \equiv 1(3) \\
+\end{cases}
+\iff \begin{cases}
+    a\equiv 1(4) \\
+    a\equiv 2(5) \\
+    a\equiv 4(9) \\
+\end{cases} $
+
+Quiebro el sistema en tres.
+
+S1: $ \begin{cases}
+    a\equiv 1(4) \\
+    a\equiv 0(5) \\
+    a\equiv 0(9) \\
+\end{cases} $
+S2: $ \begin{cases}
+    a\equiv 0(4) \\
+    a\equiv 2(5) \\
+    a\equiv 0(9) \\
+\end{cases} $
+S3: $ \begin{cases}
+    a\equiv 0(4) \\
+    a\equiv 0(5) \\
+    a\equiv 4(9) \\
+\end{cases} $
+
+Busco soluciones a cada sistema,
+
+S1, $ \begin{cases}
+    a\equiv 1(4) \\
+    a\equiv 0(45) \\
+\end{cases} \implies a = 45k \implies 45k \equiv 1(4) \implies k \equiv 1(4) $
+
+Luego $ x_1 = 45 $
+
+S2, $ \begin{cases}
+    a\equiv 2(5) \\
+    a\equiv 0(36) \\
+\end{cases} \implies a = 36k \implies 36k \equiv 2(5) \implies k \equiv 2(5) $
+
+Luego $ x_2 = 36.2 = 72 $
+
+S3, $ \begin{cases}
+    a\equiv 4(9) \\
+    a\equiv 0(20) \\
+\end{cases} \implies a = 20k \implies 20k \equiv 4(9) \implies k \equiv 2(9) $
+
+Luego $ x_3 = 20.2 = 40 $
+
+Entonces sea $ x = x_1 + x_2 + x_3 = 45+72+40 = 157 $
+
+El TCR me asegura que hay una únnica solución del sistema MOD 180
+
+Rta.: $ x \equiv 157 (180) $ es solución al sistema.
+
+\subsection{Ejercicio 11}
+
+\subsubsection{Pregunta i}
+
+$ \begin{cases}
+    3a \equiv 4(5) \\
+    5a \equiv 4(6) \\
+    6a \equiv 2(7) \\
+\end{cases} 
+\iff \begin{cases}
+    3.3a \equiv 3.4(5) \\
+    5.5a \equiv 5.4(6) \\
+    6.6a \equiv 6.2(7) \\
+\end{cases}
+\iff \begin{cases}
+    a \equiv 3(5) \\
+    a \equiv 2(6) \\
+    a \equiv 5(7) \\
+\end{cases} $
+
+Quiebro el sistema en tres.
+
+S1: $ \begin{cases}
+    a \equiv 3(5) \\
+    a \equiv 0(6) \\
+    a \equiv 0(7) \\
+\end{cases} $
+S2: $ \begin{cases}
+    a \equiv 0(5) \\
+    a \equiv 2(6) \\
+    a \equiv 0(7) \\
+\end{cases} $
+S3: $ \begin{cases}
+    a \equiv 0(5) \\
+    a \equiv 0(6) \\
+    a \equiv 5(7) \\
+\end{cases} $
+
+Busco soluciones de cada sistema.
+
+S1: $ \begin{cases}
+    a \equiv 3(5) \\
+    a \equiv 0(42) \\
+\end{cases} \implies a = 42k \implies 42k \equiv 3(5) \implies 2k \equiv 3(5) \implies k \equiv 4(5) $
+
+Luego $ x_1 = 42.4 = 168 $
+
+S2: $ \begin{cases}
+    a \equiv 2(6) \\
+    a \equiv 0(35) \\
+\end{cases} \implies a = 35k \implies 35k \equiv 2(6) \implies -k \equiv 2(6) \implies k \equiv 4(6) $
+
+Luego $ x_2 = 35.4 = 140 $
+
+S3: $ \begin{cases}
+    a \equiv 5(7) \\
+    a \equiv 0(30) \\
+\end{cases} \implies a = 30k \implies 30k \equiv 5(7) \implies 2k \equiv 5(7) \implies k \equiv 6(7) $
+
+Luego $ x_3 = 30.6 = 180 $
+
+Así, defino $ x = x_1 + x_2 + x_3 = 168 + 140 +180 = 488 $
+
+Rta.: $ a\equiv 488 \equiv 68 (210) $ es solución al sistema.
+
+\subsubsection{Pregunta ii}
+
+$ \begin{cases}
+    3a \equiv 1(10) \\
+    5a \equiv 3(6) \\
+    9a \equiv 1(14) \\
+\end{cases} 
+\iff \begin{cases}
+    -a \equiv 3(10) \implies a \equiv 7(10) \\
+    a \equiv 3(6) \\
+    -a \equiv 3(14) \implies a \equiv 11(14) \\
+\end{cases}
+\iff \begin{cases}
+    a \equiv 7(10) \\
+    a \equiv 3(6) \\
+    a \equiv 11(14) \\
+\end{cases}
+\iff \begin{cases}
+    a \equiv 7(5) \\
+    a \equiv 7(2) \\
+    a \equiv 3(3) \\
+    a \equiv 3(2) \\
+    a \equiv 11(7) \\
+    a \equiv 11(2) \\
+\end{cases}
+\iff \begin{cases}
+    a \equiv 7(5) \\
+    a \equiv 0(3) \\
+    a \equiv 11(14) \\
+\end{cases} $
+
+Quiebro el sostema en tres.
+
+S1: $ \begin{cases}
+    a \equiv 7(5) \\
+    a \equiv 0(3) \\
+    a \equiv 0(14) \\
+\end{cases} $
+S2: $ \begin{cases}
+    a \equiv 0(5) \\
+    a \equiv 0(3) \\
+    a \equiv 0(14) \\
+\end{cases} $
+S3: $ \begin{cases}
+    a \equiv 0(5) \\
+    a \equiv 0(3) \\
+    a \equiv 11(14) \\
+\end{cases} $
+
+Busco soluciones de cada sistema.
+
+S1: $ \begin{cases}
+    a \equiv 7(5) \\
+    a \equiv 0(42) \\
+\end{cases} \implies a = 42k \implies 42k \equiv 7(5) \implies 2k \equiv 2(5) \implies k \equiv 1(5) $
+
+Luego $ x_1 = 42k = 42.1 = 42 $
+
+S2: $ \begin{cases}
+    a \equiv 0(210) \\
+\end{cases} $
+
+Luego $ x_2 = 0 $
+
+S3: $ \begin{cases}
+    a \equiv 11(14) \\
+    a \equiv 0(15) \\
+\end{cases} \implies a = 15k \implies 15k \equiv 11(14) \implies k \equiv 11(14) $
+
+Luego $ x_3 = 15k = 15.11 = 165 $
+
+Por lo tanto, $ x = x_1 + x_2 + x_3 = 42 + 0 + 165 = 207 $
+
+Rta.: $ a\equiv 207(210) $
+
+\subsubsection{Pregunta iii}
+
+$ \begin{cases}
+    15a \equiv 10(35) \\
+    21a \equiv 15(8) \\
+    18a \equiv 24(30) \\
+\end{cases} 
+\iff \begin{cases}
+    3a \equiv 2(7) \\
+    21a \equiv 15(8) \\
+    3a \equiv 4(5) \\
+\end{cases}
+\iff \begin{cases}
+    -a \equiv 4(7) \implies a \equiv 3(7) \\
+    a \equiv 3(8) \\
+    -a \equiv 12(5) \implies a \equiv 3(5) \\
+\end{cases}
+\iff \begin{cases}
+    a\equiv 3(7) \\
+    a\equiv 3(8) \\
+    a\equiv 3(5) \\
+\end{cases} $
+
+Rta.: $ a\equiv 3(280) $
+
+\subsection{Ejercicio 12}
+
+\subsubsection{Pregunta i}
+
+$ \begin{cases}
+    a\equiv 5(6) \\
+    a\equiv 3(10) \\
+    a\equiv 5(8) \\
+\end{cases} 
+\iff \begin{cases}
+    a\equiv 5(3) \implies a\equiv 2(3) \\
+    a\equiv 5(2) \implies a\equiv 1(2) \\
+    a\equiv 3(5) \\
+    a\equiv 3(2) \implies a\equiv 1(2) \\
+    a\equiv 5(8) \\
+\end{cases}
+\iff \begin{cases}
+    a\equiv 2(3) \\
+    a\equiv 3(5) \\
+    a\equiv 5(8) \\
+\end{cases} $
+
+Divido el sistema en tres.
+
+S1: $ \begin{cases}
+    a\equiv 2(3) \\
+    a\equiv 0(5) \\
+    a\equiv 0(8) \\
+\end{cases} $
+S2: $ \begin{cases}
+    a\equiv 0(3) \\
+    a\equiv 3(5) \\
+    a\equiv 0(8) \\
+\end{cases} $
+S3: $ \begin{cases}
+    a\equiv 0(3) \\
+    a\equiv 0(5) \\
+    a\equiv 5(8) \\
+\end{cases} $
+
+Busco soluciones a cada sistema.
+
+S1: $ \begin{cases}
+    a\equiv 2(3) \\
+    a\equiv 0(40) \\
+\end{cases} \implies a = 40k \implies 40k \equiv 2(3) \implies k \equiv 2(3) $
+
+Luego $ x_1 = 40.2 = 80 $
+
+S2: $ \begin{cases}
+    a\equiv 3(5) \\
+    a\equiv 0(24) \\
+\end{cases} \implies a = 24k \implies 24k \equiv 3(5) \implies -k \equiv 3(5) \implies k \equiv 2(5) $
+
+Luego $ x_2 = 24.2 = 48 $
+
+S3: $ \begin{cases}
+    a\equiv 5(8) \\
+    a\equiv 0(15) \\
+\end{cases} \implies a = 15k \implies 15k \equiv 5(8) \implies k \equiv 3(8) $
+
+Luego $ x_3 = 15.3 = 45 $
+
+Por lo tanto, $ x = x_1 + x_2 + x_3 = 80+48+45 = 173 $
+
+Rta.: $ r_{480}(a) = 173 $
+
+\subsubsection{Pregunta ii}
+
+$ \begin{cases}
+    a\equiv 13(21) \\
+    6a\equiv 9(15) \\
+\end{cases} 
+\iff \begin{cases}
+    a \equiv 13(21) \\
+    2a \equiv 3(5) \\
+\end{cases}
+\iff \begin{cases}
+    a \equiv 13(21) \\
+    a \equiv 4(5) \\
+\end{cases} $
+
+Divido el sistema en dos.
+
+S1: $ \begin{cases}
+    a \equiv 13(21) \\
+    a \equiv 0(5) \\
+\end{cases} $
+S2: $ \begin{cases}
+    a \equiv 0(21) \\
+    a \equiv 5(5) \\
+\end{cases} $
+
+Busco soluciones a los sistemas.
+
+S1: $ \begin{cases}
+    a \equiv 13(21) \\
+    a \equiv 0(5) \\
+\end{cases} \implies a = 5k \implies 5k \equiv 13(21) \implies k \equiv 11(21) $
+
+Luego $ x_1 = 5k = 5.11 = 55 $   
+
+S2: $ \begin{cases}
+    a \equiv 4(5) \\
+    a \equiv 0(21) \\
+\end{cases} \implies a = 21k \implies 21k \equiv 4(5) \implies k \equiv 4(5) $
+
+Luego $ x_2 = 21k = 21.4 = 84 $   
+
+Por lo tanto $ x = x_1 + x_2 = 55+84 = 139 \implies a \equiv 35(105)$
+
+Rta.: 34 es el entero positivo más chico que cumple lo pedido.
+
+\subsection{Ejercicio 13}
+
+$ \begin{cases}
+    a \equiv 4(12) \\
+    a \equiv 43(63) \\
+\end{cases} 
+\iff \begin{cases}
+    a \equiv 4(3) \\
+    a \equiv 4(4) \\
+    a \equiv 43(9) \\
+    a \equiv 43(7) \\
+\end{cases}
+\iff \begin{cases}
+    a \equiv 1(3) \\
+    a \equiv 0(4) \\
+    a \equiv 7(9) \implies a \equiv 1(3) \\
+    a \equiv 1(7) \\
+\end{cases}
+\iff \begin{cases}
+    a\equiv 0(4) \\
+    a\equiv 7(9) \\
+    a\equiv 1(7) \\
+\end{cases} $
+
+Divido el sistema en tres.
+
+S1: $ \begin{cases}
+    a\equiv 0(4) \\
+    a\equiv 0(9) \\
+    a\equiv 0(7) \\
+\end{cases} $
+S2: $ \begin{cases}
+    a\equiv 0(4) \\
+    a\equiv 7(9) \\
+    a\equiv 0(7) \\
+\end{cases} $
+S3: $ \begin{cases}
+    a\equiv 0(4) \\
+    a\equiv 0(9) \\
+    a\equiv 1(7) \\
+\end{cases} $
+
+Busco soluciones a los sistemas.
+
+S1: $ \begin{cases}
+    a\equiv 0(252) \\
+\end{cases} $
+
+Luego $ x_1 = 0 $
+
+S2: $ \begin{cases}
+    a\equiv 7(9) \\
+    a\equiv 0(28) \\
+\end{cases} \implies a = 28k \implies 28k \equiv 7(9) \implies k \equiv 7(9) $
+
+Luego $ x_2 = 28k = 28.7 = 196$
+
+S3: $ \begin{cases}
+    a\equiv 1(7) \\
+    a\equiv 0(36) \\
+\end{cases} \implies a = 36k \implies 36k \equiv 1(7) \implies k \equiv 1(7) $
+
+Luego $ x_3 = 36k = 36.1 = 36$
+
+Por lo tanto, $ x = x_1 + x_2 + x_3 = 0+196+36 = 232 \implies a \equiv 232(252) $
+
+Luego $ a \equiv 232(252) \iff a = 252k+232 $
+
+Ahora uso que $ 12600 \leq a \leq 13300 $,
+\begin{align*}
+    12600 &\leq a \leq 13300 \\
+    12600 &\leq 252k+232 \leq 13300 \\
+    \frac{12600-232}{252} &\leq k \leq \frac{13300-232}{252} \\
+    49,07 &\leq k \leq 51,85 \\
+\end{align*}
+
+Luego $ k \in \{ 50,51 \} $
+
+\begin{itemize}
+    \item $ k = 50 \implies a = 12832 $
+    \item $ k = 51 \implies a = 13084 $
+\end{itemize}
+
+Rta.: Había 12832 o 13084 latas.
+
+\subsection{Ejercicio 14}
+
+$ a^2 \equiv 21(238) \iff \begin{cases}
+    a^2 \equiv 21(2) \\
+    a^2 \equiv 21(7) \\
+    a^2 \equiv 21(17) \\
+\end{cases} 
+\iff \begin{cases}
+    a^2 \equiv 1(2) \\
+    a^2 \equiv 0(7) \\
+    a^2 \equiv 4(17) \\
+\end{cases} $
+
+Usando tabla de restos llego a
+
+$ \begin{cases}
+    a \equiv 1(2) \\
+    a \equiv 0(7) \\
+    a \equiv 2(17) \vee a\equiv 15(17) \\
+\end{cases} $
+
+Divido el sistema en tres.
+
+S1: $ \begin{cases}
+    a \equiv 1(2) \\
+    a \equiv 0(7) \\
+    a \equiv 0(17) \vee a\equiv 0(17) \\
+\end{cases} $
+S2: $ \begin{cases}
+    a \equiv 0(2) \\
+    a \equiv 0(7) \\
+    a \equiv 0(17) \vee a\equiv 0(17) \\
+\end{cases} $
+S3: $ \begin{cases}
+    a \equiv 0(2) \\
+    a \equiv 0(7) \\
+    a \equiv 2(17) \vee a\equiv 15(17) \\
+\end{cases} $
+
+Busco soluciones de cada sistema.
+
+S1: $ \begin{cases}
+    a \equiv 1(2) \\
+    a \equiv 0(119) \\
+\end{cases} \implies a = 119k \implies 119k \equiv 1(2) \implies k \equiv 1(2) $
+
+Luego $ x_1 = 119 $
+
+S2: $ \begin{cases}
+    a \equiv 0(238) \\
+\end{cases} $
+
+Luego $ x_2 = 0 $
+
+S3a: $ \begin{cases}
+    a \equiv 2(17) \\
+    a \equiv 0(14) \\
+\end{cases} \implies a = 14k \implies 14k \equiv 2(17) \implies k \equiv 5(17) $
+
+Luego $ x_{3a} = 14.5 = 70 $
+
+S3b: $ \begin{cases}
+    a \equiv 15(17) \\
+    a \equiv 0(14) \\
+\end{cases} \implies a = 14k \implies 14k \equiv 15(17) \implies k \equiv 12(17) $
+
+Luego $ x_{3b} = 14.12 = 168 $
+
+Así, obtengo dos soluciones:
+\begin{itemize}
+    \item $ x_a = x_1 + x_2 + x_{3a} = 119+0+70 = 189 $
+    \item $ x_b = x_1 + x_2 + x_{3b} = 119+0+168 = 287 \equiv 49(238) $
+\end{itemize}
+
+Rta.: Los posibles restos son 49 y 189.
+
+\subsection{Ejercicio 15}
+
+Rdo. PTF: $ a^{p-1} \equiv 1(p) \iff p \text{ es primo} \wedge (a:p)=1 $
+
+\subsubsection{Pregunta i}
+
+Como 11 es primo por PTF $ a^{10} \equiv 1(11) $ si $ (a:11) = 1 $
+
+\begin{align*}
+    71^{22283} &\equiv 5^{22283} (11) \\
+    &\equiv 5^{10q+3} (11) \\
+    &\equiv 5^{10^q}. 5^3 (11) \\
+    &\equiv 1^q. 125 (11) \\
+    &\equiv 4 (11) \\
+\end{align*}
+Luego $ r_{11}(71^{22283}) = 4 $
+
+\subsubsection{Pregunta ii}
+\begin{align*}
+    5.7^{2451} + 3.65^{2345} - 23.8^{138} &\equiv 5.7^{2451} +3.0^{2345} - 10.8^{138}(13) \\
+    &\equiv 5.7^{12.q+3} - 10.8^{12q+6}(13) \\
+    &\equiv 5.7^{12^q}. 7^3 - 10.8^{12^q}. 8^6(13) \\
+    &\equiv 25 - 120(13) \\
+    &\equiv 9(13) \\
+\end{align*}
+Luego $ r_{13}(5.7^{2451} + 3.65^{2345} - 23.8^{138}) = 9 $
+
+\subsection{Ejercicio 16}
+
+\subsubsection{Pregunta i}
+
+$ 2^{194} X \equiv 7(97) $
+
+Como $ (2:97) = 1 $ y 97 es primo $ \implies 2^{96} \equiv 1(97) $
+
+\begin{align*}
+    2^{194} X \equiv 7(97) &\iff (2^{96})^2.4X \equiv 7(97) \\
+    &\iff (1)^2.4X \equiv 7(97) \\
+    &\iff 4X \equiv 7(97) \\
+    &\iff -24.4X \equiv -24.7(97) \\
+    &\iff X \equiv 26(97) \\
+\end{align*}
+
+\subsubsection{Pregunta ii}
+
+$ 5^{86}X \equiv 3(89) $
+
+Como $ (5:89) = 1 $ y 89 es primo $ \implies 5^{88} \equiv 1(89) $
+
+Luego,
+\begin{align*}
+    5^{86}X \equiv 3(89) &\iff 5^{88}X \equiv 5^2.3(89) \\
+    &\iff X \equiv 75(89) \\
+    &\iff X \equiv 19(89) \\
+\end{align*}
+
+\subsection{Ejercicio 17}
+TODO
+
+\subsection{Ejercicio 18}
+
+Se que $ 561 = 3.11.17 $ y que $ a \perp 561 $ luego,
+
+\begin{align*}
+    a^{560} \equiv 1(561) &\iff \begin{cases}
+        a^{560}\equiv 1(3) \iff (a^2)^{280} \equiv 1(3) \\
+        a^{560}\equiv 1(11) \iff (a^{10})^{56} \equiv 1(11) \\
+        a^{560}\equiv 1(17) \iff (a^{16})^{35} \equiv 1(17) \\
+    \end{cases}
+\end{align*}
+
+Los tres verdaderos por el PTF.
+
+\subsection{Ejercicio 19}
+
+\subsubsection{Pregunta i}
+
+$ \begin{cases}
+    2^{2013}X \equiv 6(13) \\
+    5^{2013}X \equiv 4(7) \\
+    7^{2013}X \equiv 2(5) \\
+\end{cases} 
+\iff \begin{cases}
+    2^{9}X \equiv 6(13) \\
+    5^{3}X \equiv 4(7) \\
+    7^{1}X \equiv 2(5) \\
+\end{cases}
+\iff \begin{cases}
+    5X \equiv 6(13) \\
+    6X \equiv 4(7) \\
+    7X \equiv 2(5) \\
+\end{cases} 
+\iff \begin{cases}
+    -5.5.X \equiv -5.6(13) \\
+    X \equiv 3(7) \\
+    -2.7.X \equiv -2.2(5) \\
+\end{cases}
+\iff \begin{cases}
+    X \equiv 9(13) \\
+    X \equiv 3(7) \\
+    X \equiv 1(5) \\
+\end{cases} $
+
+Ahora puedo usar el Teorema Chino del Resto. Divido el sistema en tres.
+
+S1: $ \begin{cases}
+    X \equiv 9(13) \\
+    X \equiv 0(7) \\
+    X \equiv 0(5) \\
+\end{cases} $
+S2: $ \begin{cases}
+    X \equiv 0(13) \\
+    X \equiv 3(7) \\
+    X \equiv 0(5) \\
+\end{cases} $
+S3: $ \begin{cases}
+    X \equiv 0(13) \\
+    X \equiv 0(7) \\
+    X \equiv 1(5) \\
+\end{cases} $ 
+
+Busco soluciones a cada sistema.
+
+S1: $ \begin{cases}
+    X \equiv 9(13) \\
+    X \equiv 0(35) \\
+\end{cases} \implies X \equiv 35k \implies 35k \equiv 9(13) \implies 9k\equiv 9(13) \implies k \equiv 1(13) $
+
+Luego $ x_1 = 35.k = 35.1 = 35 $
+
+S2: $ \begin{cases}
+    X \equiv 3(7) \\
+    X \equiv 0(65) \\
+\end{cases} \implies X \equiv 65k \implies 65k \equiv 3(7) \implies 2k \equiv 3(7) \implies k \equiv 5(7) $
+
+Luego $ x_2 = 65.k = 65.5 = 325 $
+
+S3: $ \begin{cases}
+    X \equiv 1(5) \\
+    X \equiv 0(91) \\
+\end{cases} \implies X \equiv 91k \implies 91k \equiv 1(5) \implies k \equiv 1(5) $
+
+Luego $ x_3 = 91.k = 91.1 = 91 $
+
+Así, $ X \equiv x_1 + x_2 + x_3 \equiv 35+325+91 \equiv 451(455) $
+
+\subsubsection{Pregunta ii}
+TODO
+
+\subsection{Ejercicio 20}
+
+\subsubsection{Pregunta i}
+
+Se que $ 70 = 2.5.7 $
+
+Luego sea $x = 3.7^{135} + 24^{78} + 11^{222} $
+
+$ \begin{cases}
+    x \equiv 1+1(2) \\
+    x \equiv 3.2^{135}+4^{78} + 1(5) \\
+    x \equiv 3^{78}+4^{222}(7) \\
+\end{cases} 
+\iff \begin{cases}
+    x \equiv 0(2) \\
+    x \equiv 3.2^{3}+4^{2} + 1(5) \\
+    x \equiv 3^{0}+4^{0}(7) \\
+\end{cases}
+\iff \begin{cases}
+    x \equiv 0(2) \\
+    x \equiv 1(5) \\
+    x \equiv 2(7) \\
+\end{cases} $
+
+Ahora puedo usar el TCR. Divido el sistema en tres.
+
+S1: $ \begin{cases}
+    x \equiv 0(2) \\
+    x \equiv 0(5) \\
+    x \equiv 0(7) \\
+\end{cases} $
+S2: $ \begin{cases}
+    x \equiv 0(2) \\
+    x \equiv 1(5) \\
+    x \equiv 0(7) \\
+\end{cases} $
+S3: $ \begin{cases}
+    x \equiv 0(2) \\
+    x \equiv 0(5) \\
+    x \equiv 2(7) \\
+\end{cases} $
+
+Busco soluciones a cada sistema.
+
+S1: $ \begin{cases}
+    x \equiv 0(2) \\
+    x \equiv 0(35) \\
+\end{cases} $
+
+Luego $ x_1 = 0 $
+
+S2: $ \begin{cases}
+    x \equiv 1(5) \\
+    x \equiv 0(14) \\
+\end{cases} \implies x = 14k \implies 14k \equiv 1(5) \implies k \equiv 4(5) $
+
+Luego $ x_2 = 14k = 14.4 = 56 $
+
+S3: $ \begin{cases}
+    x \equiv 2(7) \\
+    x \equiv 0(10) \\
+\end{cases} \implies x = 10k \implies 10k \equiv 2(7) \implies 3k \equiv 2(7) \implies k \equiv 3(7) $
+
+Luego $ x_3 = 10k = 10.3 = 30 $
+
+Así, $ x_1 + x_2 +x_3 = 0+56+30 = 86 \equiv 16(70) $
+
+Rta.: $ r_{70}(3.7^{135} + 24^{78} + 11^{222}) = 16 $
+
+\subsubsection{Pregunta ii}
+
+Se que $ 56 = 8 . 7 $ luego voy a buscar congruencias de la sumatoria mod 7 y mod 8.
+
+$ \begin{cases}
+    \sum_{i=1}^{1759}i^{42} \equiv n_1 (7) \\
+    \sum_{i=1}^{1759}i^{42} \equiv n_2 (8) \\
+\end{cases} $
+
+\underline{Módulo 7}
+
+\begin{itemize}
+    \item $ (i:7) = 1 \implies i^6 \equiv 1(7) \implies (i^6)^7 \equiv 1(7) \implies i^{42} \equiv 1(7) $
+    \item $ (i:7) \neq 1 \implies 7|i \implies i^{42} \equiv 0(7) $
+\end{itemize}
+
+Luego $ \sum_{i=1}^{1759}i^{42} = \sum_{i=1 \wedge 7|i}^{1759}i^{42} + \sum_{i=1 \wedge 7\not | i}^{1759}i^{42} $
+
+Por lo tanto, necesito saber la cantidad de números x entre 1 y 1759 tales que $ x \not \equiv 0(7) $. Se que $ 1759 = 251.7+2 $ luego hay $ 1759-251=1508 $ que cumplen lo pedido.
+
+Entonces, $ \sum_{i=1}^{1759}i^{42} \equiv 1508 \equiv 3(7) $
+
+\underline{Módulo 8}
+
+\begin{itemize}
+    \item $ 2|i \implies i = 2k \implies i^{42} = (2k)^{42} = (2^3)^{14}. k^{42} \implies i^{42} \equiv 0(8) $
+    \item $ 2 \not | i \implies (i \equiv 1(8)) \vee (i \equiv 3(8)) \vee (i \equiv 5(8)) \vee (i \equiv 7(8)) \implies i^{42} \equiv 1(8)$
+\end{itemize}
+
+El segundo item se puede probar con tabla de restos.
+
+Luego, $ \sum_{i=1}^{1759}i^{42} = \sum_{i=1 \wedge 2|i}^{1759}i^{42} \sum_{i=1 \wedge 2\not |i}^{1759}i^{42} \equiv 0+880\equiv 0(8)$
+
+Entonces $ \begin{cases}
+    x \equiv 3(7) \\
+    x \equiv 0(8) 
+\end{cases} \implies x\equiv 24(56) $
+
+Por TCR es la única solución al sistema. Luego $ r_{56}(\sum_{i=1}^{1759}i^{42}) = 24 $
+
+\subsection{Ejercicio 21}
+
+$ 2^{2^n} \equiv r(13) $ y se que $ (2:13) = 1 $ y 13 es primo $ \implies 2^{12} \equiv 1(13) $
+
+Si escribo $ 2^n = 12k +r_{12}(2^n) $ luego $ 2^{12k+r} \equiv (2^{12})^k . 2^r (13) \equiv 2^{r_{12}(2^n)}(13)$
+
+Ahora estudio congruencia de $ 2^n $ mod 12
+
+$ 2^n \equiv k (12) \iff \begin{cases}
+    2^n \equiv k (3) \\
+    2^n \equiv k (4) \\
+\end{cases} $
+
+\underline{Caso mod 4}
+
+\begin{itemize}
+    \item $ n = 1 \implies 2^n \equiv 2(4) $
+    \item $ n \geq 2 \implies 2^n \equiv 0(4) $
+\end{itemize}
+
+\underline{Caso mod 3}
+
+Por PTF $ 2^2 \equiv 1(3) $ pues $ (2:3) = 1 $ y 3 es primo.
+
+Luego $ n = 2j+r_2(n) \implies 2^n \equiv k(3) \iff 2^{2j+r_2(n)} \equiv (2^2)^j. 2^{r_2(n)} \equiv 2^{r_2(n)} $
+
+Así llego a que,
+
+$ 2^n \equiv 0(4) $ o $ 2^n \equiv 2(4) $ \\
+$ 2^n \equiv 1(3) $ o $ 2^n \equiv 2(3) $ 
+
+\begin{itemize}
+    \item $ n = 1 \implies \begin{cases}
+        2^1 \equiv 2(4) \\
+        2^1 \equiv 2(3) \\
+    \end{cases} 
+    \implies 2 \equiv 2(12) $
+    \item $ n \geq 2 \wedge n \bmod 2 = 0 \implies \begin{cases}
+        2^n \equiv 0(4) \\
+        2^n \equiv 1(3) \\
+    \end{cases} 
+    \implies 2^n \equiv 4(12) $
+    \item $ n \geq 2 \wedge n \bmod 2 = 1 \implies \begin{cases}
+        2^n \equiv 0(4) \\
+        2^n \equiv 2(3) \\
+    \end{cases} 
+    \implies 2^n \equiv 8(12) $
+\end{itemize}
+
+Luego con estas 3 estudio $ 2^{r_{12}(2^n)} \equiv h(13) $
+
+\begin{itemize}
+    \item $ n = 1 \implies 2^2 \equiv 4(13) \implies r_{13}(2^{2^n}) = 4 $
+    \item $ n \geq 2 \wedge n \bmod 2 = 0 \implies 2^4 \equiv 3(13) \implies r_{13}(2^{2^n}) = 3 $
+    \item $ n \geq 2 \wedge n \bmod 2 = 1 \implies 2^8 \equiv 9(13) \implies r_{13}(2^{2^n}) = 9 $
+\end{itemize}
+
+\subsection{Ejercicio 22}
+
+$ 7x^{45} \equiv 1(46) \iff \begin{cases}
+    7x^{45} \equiv 1(23) \\
+    7x^{45} \equiv 1(2)
+\end{cases} 
+\iff \begin{cases}
+    7x^{45} \equiv 1(23) \\
+    x^{45} \equiv 1(2)
+\end{cases} $
+
+Es facil ver que $ 23\not | x $ y $ 2\not | x $
+
+Por lo tanto por PTF $ x^{22} \equiv 1(23) $ y $ x \equiv 1(2) $
+
+$ \begin{cases}
+    7x \equiv 1(23) \\
+    x \equiv 1(2)
+\end{cases} 
+\iff \begin{cases}
+    10.7x \equiv 10.1(23) \\
+    x \equiv 1(2)
+\end{cases}
+\iff \begin{cases}
+    x \equiv 10(23) \\
+    x \equiv 1(2)
+\end{cases} $
+
+Luego por TCR, la unica solución es $ x \equiv 33(46) $
+
+\subsection{Ejercicio 23}
+
+Busco los x tales que $ x \in Div(25^{70}) \wedge \begin{cases}
+    x \equiv 2(9) \\
+    x \equiv 3(11)
+\end{cases} $
+
+Luego $ 25^{70} = (5^2)^{70} = 5^{140} \implies Div_+(5^{140}) = \{ 5^n \}; 0\leq n \leq 140 $
+
+Así, busco soluciones de $ \begin{cases}
+    5^n \equiv 2(9) \\
+    5^n \equiv 3(11) \\
+\end{cases} $
+
+\underline{Caso mod 11}
+
+$ 5^n \equiv 3(11) \iff 5^{10k+r_{10}(n)} \equiv 3(11) \iff 5^{r_{10}(n)} \equiv 3(11) $
+
+Luego por tabla de restos se puede ver que $ 5^n \equiv 3(11) \iff (n \equiv 2(10)) \vee (n \equiv 7(10)) $
+
+\underline{Caso mod 9}
+
+\begin{itemize}
+    \item $ n = 0 \implies 5^0 \equiv 1(9) $
+    \item $ n = 1 \implies 5^1 \equiv 5(9) $
+    \item $ n = 2 \implies 5^2 \equiv 7(9) $
+    \item $ n = 3 \implies 5^3 \equiv 8(9) $
+    \item $ n = 4 \implies 5^4 \equiv 4(9) $
+    \item $ n = 5 \implies 5^5 \equiv 2(9) $
+    \item $ n = 6 \implies 5^6 \equiv 1(9) $
+\end{itemize}
+
+Y a partir de $ n = 6 $ se empiezan a repetir.
+
+Armando tabla de restos módulo 6 se puede ver que $ 5^n \equiv 2(9) \iff n \equiv 5(6) $
+
+Uniendo lo hallado,
+
+$ \begin{cases}
+    n \equiv 5(6) \\
+    n \equiv 2(5) \\
+\end{cases} \implies n \equiv 17(30) \iff n = 30k+17$
+
+Luego para el n hallado, busco los divisores de $ 5^{140} $
+
+\begin{align*}
+    0 \leq n \leq 140 &\iff 0\leq 30k+17 \leq 140 \\
+    &\iff -17 \leq 30k \leq 123 \\
+    &\iff \frac{-17}{30} \leq k \leq \frac{123}{30} \\
+    &\iff -0,5 \leq k \leq 4,1 \\
+    &\iff k \in \{ 0,1,2,3,4 \} \\
+\end{align*}
+
+Así, los divisores que cumplen lo pedido son: $ \{ 5^{17}, 5^{47}, 5^{77}, 5^{107}, 5^{137} \} $
+
+\subsection{Ejercicio 24}
+
+\subsubsection{Pregunta i}
+
+\underline{Caso p = 2}
+
+$ 4|38^5+6+171 \iff 38^5+6+171 \equiv 0(4) \iff 2^5 +2+3\equiv 0+2+3 \equiv 5(4) $
+
+Luego $ p \neq 2 $
+
+\underline{Caso $ p \neq 2 $}
+
+\begin{align*}
+    2p | 38^{2p^2-p-1} + 3p+171 &\iff \begin{cases}
+        2 | 38^{2p^2-p-1} + 3p+171 \\
+        p | 38^{2p^2-p-1} + 3p+171
+    \end{cases}
+\end{align*}
+
+Pero $ 2 | 38^{2p^2-p-1} + 3p+171 \iff 38^{2p^2-p-1} + 3p+171 \equiv 0+p+1 \equiv 0(2) $
+
+Así, 2 siempre divide.
+
+Si $ p |38 \implies p = 19 \implies 38^{2p^2-p-1} + 3p+171 \equiv 0+0+0(19) \equiv 0(19)$
+
+Si $ p \not |38 \implies 38^{2p^2-p-1} + 3p+171 \equiv (38^{p-1})^{2p+1} + 0+171 \equiv 172(19)$
+
+Entonces busco p tal que $ 172 \equiv 0(p) \iff 172 = p.k $
+
+Pero $ 172 = 4.43 \implies p = 43 $ es solución.
+
+Rta.: $ \{ 19,43 \} $
+
+\subsubsection{Pregunta ii}
+TODO
+
+\subsection{Ejercicio 25}
+
+Se que $ 88 = 11.2^3 $
+
+$ (a^{760} + 11a + 10 : 88) = 2 \implies \begin{cases}
+    2 | a^{760} + 11a + 10 \\
+    11 \not | a^{760} + 11a + 10 \\
+    2^2 \not | a^{760} + 11a + 10 \\
+\end{cases} $
+
+Busco valores de a que cumplan las tres condiciones.
+
+$ 2 | a^{760} + 11a + 10 \iff a^{760} + 11a + 10 \equiv 0(2) \iff a^{760} + a \equiv 0(2) $
+
+Que se cumple $ \forall a \in \mathbb{Z} $
+
+$ a^{760} + 11a + 10 \equiv a^{760} + 10(11) \implies \begin{cases}
+    a^{760} + 11a + 10 \equiv 10(11) & 11|a \\
+    a^{760} + 11a + 10 \equiv 10(11) & 11\not |a 
+\end{cases} $
+
+Luego $ 11 \not | a^{760} + 11a + 10; \forall a \in \mathbb{Z} $
+
+$ a^{760} + 11a + 10 \equiv a^{760} + 3a + 2 (4) $
+
+Busco valores de a tales que $ a^{760} + 3a + 2 \not \equiv 0(4) $
+
+\begin{itemize}
+    \item $ a \equiv 0(4) \implies a^{760} + 3a + 2 \equiv 0 + 0 + 2 \equiv 2 (4) $
+    \item $ a \equiv 1(4) \implies a^{760} + 3a + 2 \equiv 1 + 3 + 2 \equiv 2 (4) $
+    \item $ a \equiv 2(4) \implies a^{760} + 3a + 2 \equiv 0 + 2 + 2 \equiv 0 (4) $
+    \item $ a \equiv 3(4) \implies a^{760} + 3a + 2 \equiv 1 + 1 + 2 \equiv 0 (4) $
+\end{itemize}
+
+Así, $ a \equiv 0(4) $ o $ a \equiv 1(4) $
+
+Luego $ \begin{cases}
+    a \equiv 10(11) \\
+    a \equiv 0(4) 
+\end{cases} \implies a \equiv 32(44) $
+
+y $ \begin{cases}
+    a \equiv 10(11) \\
+    a \equiv 1(4) 
+\end{cases} \implies a \equiv 21(44) $
+
+Luego los posibles restos son $ \{ 21,32 \} $
+
+\end{document}
