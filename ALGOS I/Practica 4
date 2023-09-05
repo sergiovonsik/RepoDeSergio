@@ -1,0 +1,131 @@
+--Ejercicio 1 Fibonachi
+
+fib :: Int -> Int
+fib i
+ | i == 0 = 0
+ | i == 1 = 1
+ | otherwise = fib (i -1) + fib (i - 2)
+
+--Ejercicio 2 Redondedar
+
+
+divisionEntera :: Float -> Integer
+divisionEntera n
+ | n < 1 = 0
+ | otherwise = 1 + divisionEntera (n-1)
+
+parteEntera :: Float -> Integer
+parteEntera x
+ | x > 0 = divisionEntera x
+ | x < 0 = 1 -(divisionEntera (-x))
+ | otherwise = 0
+
+
+
+--Ejercicio 3 Verificar si es divisible
+
+esDivisible :: Integer -> Integer -> Bool
+esDivisible n_dividido divisor
+ | n_dividido == 0 = True
+ | 0 < n_dividido && n_dividido < divisor = False
+ | otherwise = esDivisible (n_dividido - divisor) divisor
+
+
+--Ejercicio 4 Suma impares
+
+sumaImpares :: Integer ->Integer
+sumaImpares n
+ | n == 0 = 0
+ | otherwise = sumaImpares (n - 1) + (-1 + 2*n)
+
+
+--Ejercicio 5 
+
+medioFact :: Integer ->Integer
+medioFact n
+ |n <= 0 = 1
+ |otherwise = (n) * medioFact (n - 2)
+
+
+--Ejercicio 6
+
+sumaDigitos :: Integer ->Integer
+sumaDigitos n
+ | n < 10 = n
+ | otherwise = (n `mod` 10) + sumaDigitos (n `div` 10)
+
+
+--Ejercicio 7
+todosDigitosIguales :: Integer ->Bool
+todosDigitosIguales n = sonLosDigitosIguales n ultimo_digito
+ where
+    ultimo_digito = (n `mod` 10)
+
+
+sonLosDigitosIguales :: Integer -> Integer -> Bool
+sonLosDigitosIguales numero digito_ref
+ | numero < 10 = numero == digito_ref
+ | otherwise = (numero `mod` 10 == digito_ref)
+  && (sonLosDigitosIguales (numero `div` 10) digito_ref)
+
+
+--Ejercicio 8
+
+iesimoDigito :: Integer ->Integer ->Integer
+iesimoDigito numero i = iterarDigitosInt numero i_correcto
+ where
+    i_correcto = (totalDigitosInt numero)- i
+
+
+iterarDigitosInt :: Integer -> Integer -> Integer
+iterarDigitosInt numero i
+ | i == 0 = numero`mod` 10
+ | otherwise = iterarDigitosInt (numero `div` 10) (i - 1)
+
+
+totalDigitosInt :: Integer -> Integer
+totalDigitosInt n
+ | n < 10 = 1
+ | otherwise = 1 + totalDigitosInt (n `div` 10)
+
+
+--Ejercicio 9 (sin listas)
+esCapicua :: Integer ->Bool
+esCapicua x
+ | x < 10 = True
+ | primerDigitoInt x == ultimoDigito x = esCapicua (sinHeadNiTail x)
+ | otherwise = False
+
+ultimoDigito :: Integer -> Integer
+ultimoDigito n = n `mod` 10
+
+primerDigitoInt :: Integer -> Integer
+primerDigitoInt n = n `div` divisor
+ where
+    divisor = 10 ^ (totalDigitosInt n - 1)
+
+sinHeadNiTail :: Integer -> Integer
+sinHeadNiTail n = (n `mod` divisor) `div` 10
+ where
+    divisor = 10 ^ (totalDigitosInt n - 1)
+
+
+--Ejercicio 10 
+--a
+diezA :: Integer -> Integer
+diezA i
+ | i == 0 = 1
+ | otherwise = 2 ^ i + diezA (i - 1)
+
+--los demas son iguales, te la debo
+
+--Ejercicio 11
+eAprox :: Integer -> Float
+eAprox n
+ | n == 0 = 1
+ | otherwise = (fromIntegral 1) /  (fromIntegral (factorial n)) + eAprox (n - 1)
+
+factorial:: Integer -> Integer
+factorial n
+ |n == 0 = 1
+ | otherwise = n * (factorial (n - 1))
