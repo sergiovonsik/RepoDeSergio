@@ -1,1 +1,146 @@
+-- Ejercicio 1
+-- 1
+longitud :: [t] -> Integer
+longitud [] = 0
+longitud (x:xs) = 1 + longitud xs
+
+-- 2
+ultimo :: [t] -> t
+ultimo (x:[]) = x
+ultimo (x:xs) = ultimo xs
+
+-- 3
+{-
+principio :: [Integer] -> [Integer]
+principio x = [(head x), 0, length x - 1]
+-}
+
+-- 4
+reverso :: [t] -> [t]
+reverso (x:[]) = [x]
+reverso (x:xs) = reverso xs ++ [x]
+
+
+-- Ejercicio 2
+-- 2.4
+
+pertenece :: Eq t => t -> [t] -> Bool
+pertenece elemento [] = False
+pertenece elemento (x:xs)
+ | elemento == x = True
+ | otherwise = pertenece elemento xs
+
+
+
+
+hayRepetidos :: (Eq t) => [t] ->Bool
+hayRepetidos xs
+ | xs == [] = False
+ | otherwise = pertenece (head xs) (tail xs) || hayRepetidos (tail xs)
+
+
+
+
+-- Ejercicio 3
+-- 3
+mayorEntreDos :: Integer ->Integer ->Integer
+mayorEntreDos x y
+ | x > y = x
+ | otherwise = y
+ 
+menorEntreDos :: Integer ->Integer ->Integer
+menorEntreDos x y
+ | x > y = y
+ | otherwise = x
+
+maximo :: [Integer] -> Integer
+maximo [x] = x
+maximo (x:xs)
+ | x > (head xs) = maximo ([x] ++ tail xs)
+ | otherwise = maximo xs
+
+
+-- #
+
+dropearMaximo :: Integer -> [Integer] -> [Integer]
+dropearMaximo x [y] = [menorEntreDos x y]
+dropearMaximo x xs
+ | x > head xs = [head xs] ++ dropearMaximo x (tail xs)
+ | otherwise = [x] ++ dropearMaximo (head xs) (tail xs)
+ 
+listaSinMaximo :: [Integer] -> [Integer]
+listaSinMaximo xs = dropearMaximo (head xs) (tail xs)
+
+-- 3.9
+
+ordenarCreciente :: [Integer] -> [Integer]
+ordenarCreciente [] = []
+ordenarCreciente [x] = [x]
+ordenarCreciente xs = ordenarCreciente (listaSinMaximo xs) ++ [mas_grande]
+ where
+    lista_sin_maximo = ordenarCreciente (listaSinMaximo xs)
+    mas_grande = maximo xs
+
+
+
+-- Ejercicio 5.2
+------------------------------------------------------------------------------------------------
+devolverPrimoN :: Integer -> Integer -> Integer
+devolverPrimoN n i
+ | i == 1 = n
+ | esPrimo (n + 1) = devolverPrimoN (n + 1) (i - 1)
+ | otherwise = devolverPrimoN (n + 1) i
+
+devolverPrimoPorIndex :: Integer -> Integer
+devolverPrimoPorIndex i = devolverPrimoN 2 i
+
+
+verificarPrimos :: Integer ->Integer -> Bool
+verificarPrimos n_evaluado i 
+ | i == 1 = True
+ | otherwise = (n_evaluado `mod` i) /= 0 && verificarPrimos n_evaluado (i - 1) 
+
+esPrimo :: Integer ->Bool
+esPrimo x
+ | x < 2 = False
+ | otherwise = verificarPrimos x (x - 1)
+
+
+
+
+iterMenorPrimoDivisor :: Integer -> Integer -> Integer
+iterMenorPrimoDivisor n_primo i
+ | (n_primo `mod` primo_divisor) == 0 = primo_divisor
+ | otherwise = iterMenorPrimoDivisor n_primo (i + 1)
+
+ where
+    primo_divisor = devolverPrimoPorIndex i
+ 
+menorPrimoDivisor :: Integer -> Integer
+menorPrimoDivisor n_primo = iterMenorPrimoDivisor n_primo 1
+
+
+factorizarPrimos :: Integer -> [Integer]
+factorizarPrimos no_primo
+ | esPrimo no_primo = [no_primo]
+ | otherwise = [primo_que_es_divisor] ++ factorizarPrimos no_primo_dividido
+ where
+    primo_que_es_divisor = menorPrimoDivisor no_primo
+    no_primo_dividido = no_primo `div` primo_que_es_divisor
+
+
+equivalenteEnPrimos :: Integer -> [Integer]
+equivalenteEnPrimos n
+ | esPrimo n = [n]
+ | otherwise = factorizarPrimos n
+
+
+descomponerEnPrimos :: [Integer] -> [[Integer]]
+descomponerEnPrimos [] = []
+descomponerEnPrimos [x] = [equivalenteEnPrimos x]
+descomponerEnPrimos (x:xs) = [equivalenteEnPrimos x] ++ descomponerEnPrimos xs
+
+
+-----------
+-----------
 
