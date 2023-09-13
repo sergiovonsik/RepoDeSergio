@@ -94,23 +94,6 @@ ordenarCreciente xs = ordenarCreciente (listaSinMaximo xs) ++ [mas_grande]
 -- Ejercicio 4
 
 
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-{-# HLINT ignore "Use :" #-}
-import System.Win32 (COORD(xPos))
-{-
-Ejercicio 4. Definir las siguientes funciones sobre listas de caracteres, interpretando una palabra como una secuencia de
-caracteres sin blancos:
-1. sacarBlancosRepetidos :: [Char] -> [Char], que reemplaza cada subsecuencia de blancos contiguos de la primera
-lista por un solo blanco en la lista resultado.
-2. contarPalabras :: [Char] -> Integer, que dada una lista de caracteres devuelve la cantidad de palabras que tiene.
-3. palabras :: [Char] -> [[Char]], que dada una lista arma una nueva lista con las palabras de la lista original.
-4. palabraMasLarga :: [Char] -> [Char], que dada una lista de caracteres devuelve su palabra m´as larga.
-5. aplanar :: [[Char]] -> [Char], que a partir de una lista de palabras arma una lista de caracteres concaten´andolas.
-6. aplanarConBlancos :: [[Char]] -> [Char], que a partir de una lista de palabras, arma una lista de caracteres
-concaten´andolas e insertando un blanco entre cada palabra.
-7. aplanarConNBlancos :: [[Char]] -> Integer -> [Char], que a partir de una lista de palabras y un entero n,
-arma una lista de caracteres concaten´andolas e insertando n blancos entre cada palabra (n debe ser no negativo).
--}
 
 --1
 sacarBlancosRepetidos :: [Char] -> [Char]
@@ -154,8 +137,47 @@ palabras (x:xs)
  | otherwise = obtenerChars (x:xs) : palabras (complementoObtenerChars (x:xs))
 
 --4
- 
 
+
+palabrasMasLarga :: [Char] -> [Char]
+palabrasMasLarga [] = []
+palabrasMasLarga (x:xs)
+ | null segunda_palabra = primer_palabra
+ | primer_palabra > segunda_palabra = palabrasMasLarga (primer_palabra ++ " " ++ resto_palabras)
+ | otherwise =  palabrasMasLarga (segunda_palabra ++ " " ++ resto_palabras)
+ where
+    primer_palabra = obtenerChars (x:xs)
+    segunda_palabra = obtenerChars resto_palabras
+    resto_palabras = complementoObtenerChars (complementoObtenerChars (x:xs))
+
+--5 y 6
+-- aplanar es aplanarConBlancos en realidad
+aplanar :: [[Char]] -> [Char]
+aplanar [] = ""
+aplanar [x] = x
+aplanar (x:xs)
+ | null resto_palabras = " " ++ primer_palabra
+ | otherwise = primer_palabra ++ " " ++ aplanar resto_palabras
+ where
+    primer_palabra = x
+    resto_palabras = xs
+
+--7
+generarNBlancos :: Integer -> [Char]
+generarNBlancos i
+ | i == 0 = []
+ | otherwise = ' ' : generarNBlancos (i - 1)
+
+aplanarConNBlancos :: [[Char]] -> Integer -> [Char]
+aplanarConNBlancos [] _ = []
+aplanarConNBlancos [x] _ = x
+aplanarConNBlancos (x:xs) i
+ | null resto_palabras = n_blancos ++ primer_palabra
+ | otherwise = primer_palabra ++ n_blancos ++ aplanarConNBlancos resto_palabras i
+ where
+    primer_palabra = x
+    resto_palabras = xs
+    n_blancos = generarNBlancos i
 
 
 
