@@ -1,0 +1,111 @@
+{-
+problema relacionesValidas (relaciones: seq⟨String × String⟩) : Bool {
+requiere: {True}
+asegura: {(res = true) ↔ no hay tuplas en relaciones con ambas componentes iguales ni tuplas repetidas (sin considerar
+el orden)}
+}
+problema personas (relaciones: seq⟨String × String⟩) : seq⟨String⟩ {
+requiere: {relacionesV alidas(relaciones)}
+asegura: {resu tiene exactamente los elementos que figuran en alguna tupla de relaciones en cualquiera de las dos
+posiciones, sin repetir}
+}
+problema amigosDe (persona: String, relaciones: seq⟨String × String⟩) : seq⟨String⟩ {
+requiere: {relacionesV alidas(relaciones)}
+asegura: {resu tiene exactamente los elementos que figuran en alguna tupla de relaciones en las que alguna de las
+componentes es persona}
+}
+problema personaConMasAmigos (relaciones: seq⟨String × String⟩) : String {
+requiere: {relaciones no vac´ıa}
+requiere: {relacionesV alidas(relaciones)}
+asegura: {resu es el Strings que aparece m´as veces en las tuplas de relaciones (o alguno de ellos si hay empate)}
+}
+-}
+
+--1 
+igualdadSinOrden :: (String, String) -> (String, String) -> Bool
+igualdadSinOrden x y
+ | ((fst x == fst y) && (snd x == snd y)) || ((fst x == snd y) && (snd x == fst y)) = True
+ | otherwise = False
+
+
+buscarRepetidos :: (String, String) -> [(String, String)] -> Bool -- True Si NO HAY REPETIDOS / Fakse Si HAY REPETIDOS
+buscarRepetidos _ [] = True
+buscarRepetidos referencia (x:xs)
+ | not (igualdadSinOrden referencia x) = buscarRepetidos referencia xs
+ | otherwise = False
+
+
+relacionesValidas :: [(String, String)] -> Bool
+relacionesValidas [] = True
+relacionesValidas (x:xs)
+ | fst x == snd x = False
+ | otherwise = (buscarRepetidos x xs) && (relacionesValidas xs)
+
+
+--Test con :
+-- [("Pepe", "Pipa"), ("CGT", "CTA"), ("ABC", "CSB"), ("Pepa", "Pepo")] -> True
+-- [("Pepe", "Pipa"), ("CGT", "CTA"), ("ABC", "CSB"), ("Pipa", "Pepito"), ("Pipa", "Coso Basile")] -> False
+
+
+
+--2 
+estaEnLista :: String -> [(String, String)] -> [String]
+estaEnLista referencia [] = [referencia]
+estaEnLista referencia ((primero, segundo):xs) 
+ | (referencia == primero) || (referencia == segundo) = []
+ | otherwise = estaEnLista referencia xs
+
+
+
+personas :: [(String, String)] -> [String]
+personas [] = []
+personas ((primero, segundo):xs) = estaEnLista primero xs ++ estaEnLista segundo xs ++ personas xs
+
+
+
+--Test con :
+-- "Pepe" ["Juan", "Carlos", "Guille"] 
+-- "Carlos" ["Juan", "Carlos", "Guille"]
+-- Los demas de antes
+
+--3
+
+devolverAmigoEnLista :: String -> (String, String) -> [String]
+devolverAmigoEnLista referencia (primero, segundo)
+ | referencia == primero = [segundo]
+ | referencia == segundo = [primero]
+ | otherwise = []
+
+
+amigosDe :: String -> [(String, String)] -> [String]
+amigosDe ref_string [] = []
+amigosDe ref_string (x:xs) = devolverAmigoEnLista ref_string x ++ amigosDe ref_string xs
+
+
+-------------------------------------------------------------------------------------------------------------------
+--4
+
+--              (pointer del max) lista de Strings     Lista de tuplas inicial
+--iterAmigos :: con_mas_amigos    resto_personas       tuplas_de_referencia
+
+iterAmigos :: String -> [String] -> [(String, String)]-> String
+iterAmigos con_mas_amigos [] tuplas_de_referencia = con_mas_amigos
+iterAmigos con_mas_amigos resto_personas tuplas_de_referencia
+ |  amigos_del_maximo > amigos_del_primero = iterAmigos con_mas_amigos resto_del_resto tuplas_de_referencia
+ | otherwise = iterAmigos primero_del_resto resto_del_resto tuplas_de_referencia
+
+ where
+    primero_del_resto = head resto_personas
+    resto_del_resto = tail resto_personas
+    amigos_del_maximo = length (amigosDe con_mas_amigos tuplas_de_referencia)
+    amigos_del_primero = length (amigosDe primero_del_resto tuplas_de_referencia)
+
+
+
+personaConMasAmigos :: [(String, String)] -> String
+personaConMasAmigos (x:xs) = iterAmigos primera_persona resto_personas tuplas_de_referencia
+ where
+    tuplas_de_referencia = (x:xs)
+    lista_personas = personas (x:xs)
+    primera_persona = head lista_personas
+    resto_personas = tail lista_personas
