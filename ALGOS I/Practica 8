@@ -1,0 +1,300 @@
+import os
+import string
+
+
+# This is a sample Python script.
+
+# Press Mayús+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+# Parte I
+
+def ejercicio_1_2(text_file: str):
+    with open(text_file, "r") as file:
+        result = ""
+        for i in file:
+            for char in i:
+                if char != "#":
+                    result += char
+                else:
+                    result += "\n"
+                    break
+        new_file = open(f"{text_file}_sin_comentarios", "w")
+        new_file.write(result)
+        new_file.close()
+
+
+def ejercicio_1_3(text_file: str):
+    with open(text_file, "r") as file:
+        inversed_text = [i for i in file][::-1]
+        result = ""
+        for i in inversed_text:
+            result += i
+        new_file = open("inverso.txt", "w")
+        new_file.write(result)
+        new_file.close()
+
+
+def ejercicio_1_4(text_file: str, comments: str = ""):
+    with open(text_file, "a") as file:
+        content = "\n" + comments
+        file.write(content)
+        file.close()
+
+
+def ejercicio_1_5(text_file: str, comments: str = ""):
+    new_text = comments + "\n"
+
+    with open(text_file, "r") as file:
+        new_text += file.read()
+
+    with open(text_file, "w") as file:
+        file.write(new_text)
+
+
+def ejercicio_1_6(text_file: str):
+    vaild_words: [str] = []
+    with open(text_file, mode="rb") as file:
+        new_word = ""
+        for line in file.readlines():
+            for binary_chr in line:
+                print(binary_chr, chr(binary_chr))
+                new_char = chr(binary_chr)
+                if new_char != " ":
+                    new_word += new_char
+                else:
+                    posible_valid_word = ejercicio_6_validacion_palabras(new_word)
+                    if posible_valid_word:
+                        vaild_words.append(posible_valid_word)
+                    new_word = ""
+
+    return vaild_wordsimport os
+import string
+
+
+# This is a sample Python script.
+
+# Press Mayús+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+# Parte I
+
+def ejercicio_1_2(text_file: str):
+    with open(text_file, "r") as file:
+        result = ""
+        for i in file:
+            for char in i:
+                if char != "#":
+                    result += char
+                else:
+                    result += "\n"
+                    break
+        new_file = open(f"{text_file}_sin_comentarios", "w")
+        new_file.write(result)
+        new_file.close()
+
+
+def ejercicio_1_3(text_file: str):
+    with open(text_file, "r") as file:
+        inversed_text = [i for i in file][::-1]
+        result = ""
+        for i in inversed_text:
+            result += i
+        new_file = open("inverso.txt", "w")
+        new_file.write(result)
+        new_file.close()
+
+
+def ejercicio_1_4(text_file: str, comments: str = ""):
+    with open(text_file, "a") as file:
+        content = "\n" + comments
+        file.write(content)
+        file.close()
+
+
+def ejercicio_1_5(text_file: str, comments: str = ""):
+    new_text = comments + "\n"
+
+    with open(text_file, "r") as file:
+        new_text += file.read()
+
+    with open(text_file, "w") as file:
+        file.write(new_text)
+
+
+def ejercicio_1_6(text_file: str):
+    vaild_words: [str] = []
+    with open(text_file, mode="rb") as file:
+        new_word = ""
+        for line in file.readlines():
+            for binary_chr in line:
+                print(binary_chr, chr(binary_chr))
+                new_char = chr(binary_chr)
+                if new_char != " ":
+                    new_word += new_char
+                else:
+                    posible_valid_word = ejercicio_6_validacion_palabras(new_word)
+                    if posible_valid_word:
+                        vaild_words.append(posible_valid_word)
+                    new_word = ""
+
+    return vaild_words
+
+
+def ejercicio_6_validacion_palabras(word: str) -> str:
+    valid_chars = [i in (string.ascii_letters + " _") for i in word]
+    if len(word) >= 5 and all(valid_chars):
+        return word
+    else:
+        return ""
+
+
+def ejercicio_6_validacion_palabras(word: str) -> str:
+    valid_chars = [i in (string.ascii_letters + " _") for i in word]
+    if len(word) >= 5 and all(valid_chars):
+        return word
+    else:
+        return ""
+
+
+# Parte II
+from queue import LifoQueue as Pila
+import random
+
+
+def ejercicio_2_8(n: int, desde: int, hasta: int) -> Pila:
+    p = Pila()
+    for i in range(n):
+        new_e = random.randint(desde, hasta)
+        p.put(new_e)
+    return p
+
+
+def ejercicio_2_9(p: Pila) -> int:
+    elements_counter = 0
+    while not(p.empty()):
+        p.get()
+        elements_counter += 1
+    return elements_counter
+
+
+def ejercicio_2_10(p: Pila) -> int:
+    max_int = p.get()
+    while not(p.empty()):
+        current_get = p.get()
+        if current_get > max_int:
+            max_int = current_get
+    return max_int
+
+
+
+#Parte III
+from queue import Queue as Cola
+
+
+def ejercicio_3_16() -> Cola:
+    p = Pila()
+    numbers = [i for i in range(99)]
+    random.shuffle(numbers)
+    for i in numbers:
+        p.put(i)
+    return p
+
+def ejercicio_3_16_b(c: Cola, carton: list = [2, 3, 5, 7, 13, 17, 19]) -> int:
+    counter = 0
+    while not(c.empty()) and carton:
+        counter += 1
+        new_element = c.get()
+        print("new_element", new_element, "counter", counter, "carton", carton)
+        if new_element in carton:
+            carton.remove(new_element)
+    return counter
+
+
+
+
+
+if __name__ == '__main__':
+    # ejercicio_5("ejercicio_4.txt", "lorem ipsum")
+    sample = ejercicio_3_16()
+    print(f"necesito {ejercicio_3_16_b(sample)} jugadas para ganar")
+
+
+
+def ejercicio_6_validacion_palabras(word: str) -> str:
+    valid_chars = [i in (string.ascii_letters + " _") for i in word]
+    if len(word) >= 5 and all(valid_chars):
+        return word
+    else:
+        return ""
+
+
+def ejercicio_6_validacion_palabras(word: str) -> str:
+    valid_chars = [i in (string.ascii_letters + " _") for i in word]
+    if len(word) >= 5 and all(valid_chars):
+        return word
+    else:
+        return ""
+
+
+# Parte II
+from queue import LifoQueue as Pila
+import random
+
+
+def ejercicio_2_8(n: int, desde: int, hasta: int) -> Pila:
+    p = Pila()
+    for i in range(n):
+        new_e = random.randint(desde, hasta)
+        p.put(new_e)
+    return p
+
+
+def ejercicio_2_9(p: Pila) -> int:
+    elements_counter = 0
+    while not(p.empty()):
+        p.get()
+        elements_counter += 1
+    return elements_counter
+
+
+def ejercicio_2_10(p: Pila) -> int:
+    max_int = p.get()
+    while not(p.empty()):
+        current_get = p.get()
+        if current_get > max_int:
+            max_int = current_get
+    return max_int
+
+
+
+#Parte III
+from queue import Queue as Cola
+
+
+def ejercicio_3_16() -> Cola:
+    p = Pila()
+    numbers = [i for i in range(99)]
+    random.shuffle(numbers)
+    for i in numbers:
+        p.put(i)
+    return p
+
+def ejercicio_3_16_b(c: Cola, carton: list = [2, 3, 5, 7, 13, 17, 19]) -> int:
+    counter = 0
+    while not(c.empty()) and carton:
+        counter += 1
+        new_element = c.get()
+        print("new_element", new_element, "counter", counter, "carton", carton)
+        if new_element in carton:
+            carton.remove(new_element)
+    return counter
+
+
+
+
+
+if __name__ == '__main__':
+    # ejercicio_5("ejercicio_4.txt", "lorem ipsum")
+    sample = ejercicio_3_16()
+    print(f"necesito {ejercicio_3_16_b(sample)} jugadas para ganar")
